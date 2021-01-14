@@ -1,4 +1,3 @@
-(*
 Module Base.
 Inductive t :=
 | A
@@ -355,11 +354,10 @@ end.
 
 End BugFin.
 
-*)
-Module BugVectorSpec.
-
 Require Fin.
 Require Import VectorDef PeanoNat Eqdep_dec.
+
+Module BugVectorSpec.
 Import VectorNotations.
 
 
