@@ -1,0 +1,721 @@
+make -C ~/pir2/coq/ -k
+make: Entering directory '/home/tmartine/pir2/coq'
+rm -f  
+make --warn-undefined-variable --no-builtin-rules -f Makefile.build 
+make[1]: Entering directory '/home/tmartine/pir2/coq'
+OCAMLDEP  MLFILES MLIFILES
+OCAMLOPT  pretyping/cases.ml
+OCAMLOPT  pretyping/pretyping.ml
+OCAMLOPT  pretyping/unification.ml
+OCAMLOPT -a -o pretyping/pretyping.cmxa
+OCAMLOPT  interp/constrintern.ml
+OCAMLOPT  interp/modintern.ml
+OCAMLOPT  interp/constrextern.ml
+OCAMLOPT -a -o interp/interp.cmxa
+OCAMLOPT  proofs/evar_refiner.ml
+OCAMLOPT  proofs/proof.ml
+OCAMLOPT  proofs/proof_bullet.ml
+OCAMLOPT  proofs/clenv.ml
+OCAMLOPT -a -o proofs/proofs.cmxa
+OCAMLOPT  printing/ppconstr.ml
+OCAMLOPT  printing/proof_diffs.ml
+OCAMLOPT  printing/printer.ml
+OCAMLOPT -a -o printing/printing.cmxa
+OCAMLOPT  tactics/tactics.ml
+OCAMLOPT  tactics/abstract.ml
+OCAMLOPT  tactics/elim.ml
+OCAMLOPT  tactics/equality.ml
+OCAMLOPT  tactics/contradiction.ml
+OCAMLOPT  tactics/inv.ml
+OCAMLOPT  tactics/hints.ml
+OCAMLOPT  tactics/auto.ml
+OCAMLOPT  tactics/eauto.ml
+OCAMLOPT  tactics/class_tactics.ml
+OCAMLOPT  tactics/eqdecide.ml
+OCAMLOPT  tactics/autorewrite.ml
+OCAMLOPT -a -o tactics/tactics.cmxa
+OCAMLOPT  vernac/declaremods.ml
+OCAMLOPT  vernac/vernacexpr.ml
+OCAMLOPT  vernac/pvernac.ml
+OCAMLOPT  vernac/g_vernac.ml
+OCAMLOPT  vernac/g_proofs.ml
+OCAMLOPT  vernac/vernacprop.ml
+OCAMLOPT  vernac/himsg.ml
+OCAMLOPT  vernac/locality.ml
+OCAMLOPT  vernac/egramml.ml
+OCAMLOPT  vernac/ppvernac.ml
+OCAMLOPT  vernac/proof_using.ml
+OCAMLOPT  vernac/metasyntax.ml
+OCAMLOPT  vernac/declareUniv.ml
+OCAMLOPT  vernac/declare.ml
+OCAMLOPT  vernac/vernacextend.ml
+OCAMLOPT  vernac/comHints.ml
+OCAMLOPT  vernac/recLemmas.ml
+OCAMLOPT  vernac/library.ml
+OCAMLOPT  vernac/comCoercion.ml
+OCAMLOPT  vernac/auto_ind_decl.ml
+OCAMLOPT  vernac/indschemes.ml
+OCAMLOPT  vernac/comDefinition.ml
+OCAMLOPT  vernac/classes.ml
+OCAMLOPT  vernac/comPrimitive.ml
+OCAMLOPT  vernac/comAssumption.ml
+OCAMLOPT  vernac/declareInd.ml
+OCAMLOPT  vernac/search.ml
+OCAMLOPT  vernac/comSearch.ml
+OCAMLOPT  vernac/comInductive.ml
+OCAMLOPT  vernac/comFixpoint.ml
+OCAMLOPT  vernac/comProgramFixpoint.ml
+OCAMLOPT  vernac/vernacstate.ml
+OCAMLOPT  vernac/printmod.ml
+OCAMLOPT  vernac/prettyp.ml
+OCAMLOPT  vernac/record.ml
+OCAMLOPT  vernac/assumptions.ml
+OCAMLOPT  vernac/mltop.ml
+OCAMLOPT  vernac/topfmt.ml
+OCAMLOPT  vernac/loadpath.ml
+OCAMLOPT  vernac/comArguments.ml
+OCAMLOPT  vernac/vernacentries.ml
+OCAMLOPT  vernac/comTactic.ml
+OCAMLOPT  vernac/vernacinterp.ml
+OCAMLOPT -a -o vernac/vernac.cmxa
+OCAMLOPT  stm/vernac_classifier.ml
+OCAMLOPT  stm/partac.ml
+OCAMLOPT  stm/stm.ml
+OCAMLOPT  stm/proofBlockDelimiter.ml
+OCAMLOPT  stm/vio_checking.ml
+OCAMLOPT -a -o stm/stm.cmxa
+OCAMLOPT  toplevel/vernac.ml
+OCAMLOPT  toplevel/coqinit.ml
+OCAMLOPT  toplevel/coqargs.ml
+OCAMLOPT  toplevel/coqcargs.ml
+OCAMLOPT  toplevel/g_toplevel.ml
+OCAMLOPT  toplevel/coqloop.ml
+OCAMLOPT  toplevel/ccompile.ml
+OCAMLOPT  toplevel/coqtop.ml
+OCAMLOPT  toplevel/workerLoop.ml
+OCAMLOPT  toplevel/coqc.ml
+OCAMLOPT -a -o toplevel/toplevel.cmxa
+COQMKTOP -o bin/coqc.opt
+rm -f bin/coqc && cp bin/coqc.opt bin/coqc
+COQC -noinit theories/Init/Notations.v
+OCAMLOPT  plugins/ltac/tacexpr.ml
+OCAMLOPT  plugins/ltac/tacarg.ml
+OCAMLOPT  plugins/ltac/tacsubst.ml
+OCAMLOPT  plugins/ltac/tacenv.ml
+OCAMLOPT  plugins/ltac/pptactic.ml
+OCAMLOPT  plugins/ltac/pltac.ml
+OCAMLOPT  plugins/ltac/taccoerce.ml
+OCAMLOPT  plugins/ltac/tactic_debug.ml
+OCAMLOPT  plugins/ltac/tacintern.ml
+OCAMLOPT  plugins/ltac/profile_ltac.ml
+OCAMLOPT  plugins/ltac/tactic_matching.ml
+OCAMLOPT  plugins/ltac/leminv.ml
+OCAMLOPT  plugins/ltac/tacinterp.ml
+OCAMLOPT  plugins/ltac/tacentries.ml
+OCAMLOPT  plugins/ltac/evar_tactics.ml
+OCAMLOPT  plugins/ltac/tactic_option.ml
+OCAMLOPT  plugins/ltac/extraargs.ml
+OCAMLOPT  plugins/ltac/g_obligations.ml
+OCAMLOPT  plugins/ltac/coretactics.ml
+OCAMLOPT  plugins/ltac/extratactics.ml
+OCAMLOPT  plugins/ltac/profile_ltac_tactics.ml
+OCAMLOPT  plugins/ltac/g_auto.ml
+OCAMLOPT  plugins/ltac/g_class.ml
+OCAMLOPT  plugins/ltac/rewrite.ml
+OCAMLOPT  plugins/ltac/g_rewrite.ml
+OCAMLOPT  plugins/ltac/g_eqdecide.ml
+OCAMLOPT  plugins/ltac/g_tactic.ml
+OCAMLOPT  plugins/ltac/g_ltac.ml
+OCAMLOPT -pack -o plugins/ltac/ltac_plugin.cmx
+OCAMLOPT -shared -o plugins/ltac/ltac_plugin.cmxs
+COQC -noinit theories/Init/Ltac.v
+COQC -noinit theories/Init/Logic.v
+COQC -noinit theories/Init/Datatypes.v
+COQC -noinit theories/Init/Logic_Type.v
+COQC -noinit theories/Init/Specif.v
+COQC -noinit theories/Init/Decimal.v
+COQC -noinit theories/Init/Hexadecimal.v
+COQC -noinit theories/Init/Number.v
+COQC -noinit theories/Init/Nat.v
+OCAMLOPT  plugins/syntax/number.ml
+OCAMLOPT  plugins/syntax/string_notation.ml
+OCAMLOPT  plugins/syntax/g_number_string.ml
+OCAMLOPT -pack -o plugins/syntax/number_string_notation_plugin.cmx
+OCAMLOPT -shared -o plugins/syntax/number_string_notation_plugin.cmxs
+COQC -noinit theories/Init/Byte.v
+COQC -noinit theories/Init/Numeral.v
+COQC -noinit theories/Init/Peano.v
+COQC -noinit theories/Init/Wf.v
+COQC -noinit theories/Init/Tactics.v
+OCAMLOPT  plugins/ltac/tauto.ml
+OCAMLOPT -pack -o plugins/ltac/tauto_plugin.cmx
+OCAMLOPT -shared -o plugins/ltac/tauto_plugin.cmxs
+COQC -noinit theories/Init/Tauto.v
+OCAMLOPT  plugins/cc/ccalgo.ml
+OCAMLOPT  plugins/cc/ccproof.ml
+OCAMLOPT  plugins/cc/cctac.ml
+OCAMLOPT  plugins/cc/g_congruence.ml
+OCAMLOPT -pack -o plugins/cc/cc_plugin.cmx
+OCAMLOPT -shared -o plugins/cc/cc_plugin.cmxs
+OCAMLOPT  plugins/firstorder/sequent.ml
+OCAMLOPT  plugins/firstorder/rules.ml
+OCAMLOPT  plugins/firstorder/instances.ml
+OCAMLOPT  plugins/firstorder/ground.ml
+OCAMLOPT  plugins/firstorder/g_ground.ml
+OCAMLOPT -pack -o plugins/firstorder/ground_plugin.cmx
+OCAMLOPT -shared -o plugins/firstorder/ground_plugin.cmxs
+COQC -noinit theories/Init/Prelude.v
+COQC      theories/Bool/Bool.v
+OCAMLOPT  plugins/ssrmatching/ssrmatching.ml
+OCAMLOPT  plugins/ssrmatching/g_ssrmatching.ml
+OCAMLOPT -pack -o plugins/ssrmatching/ssrmatching_plugin.cmx
+OCAMLOPT -shared -o plugins/ssrmatching/ssrmatching_plugin.cmxs
+COQC      theories/ssrmatching/ssrmatching.v
+OCAMLOPT  plugins/ssr/ssrprinters.ml
+OCAMLOPT  plugins/ssr/ssrcommon.ml
+OCAMLOPT  plugins/ssr/ssrtacticals.ml
+OCAMLOPT  plugins/ssr/ssrelim.ml
+OCAMLOPT  plugins/ssr/ssrview.ml
+OCAMLOPT  plugins/ssr/ssrbwd.ml
+OCAMLOPT  plugins/ssr/ssrequality.ml
+OCAMLOPT  plugins/ssr/ssripats.ml
+OCAMLOPT  plugins/ssr/ssrfwd.ml
+OCAMLOPT  plugins/ssr/ssrparser.ml
+OCAMLOPT  plugins/ssr/ssrvernac.ml
+OCAMLOPT -pack -o plugins/ssr/ssreflect_plugin.cmx
+OCAMLOPT -shared -o plugins/ssr/ssreflect_plugin.cmxs
+COQC      theories/ssr/ssrclasses.v
+COQC      theories/ssr/ssrunder.v
+COQC      theories/ssr/ssreflect.v
+OCAMLOPT  plugins/ssrsearch/g_search.ml
+OCAMLOPT -pack -o plugins/ssrsearch/ssrsearch_plugin.cmx
+OCAMLOPT -shared -o plugins/ssrsearch/ssrsearch_plugin.cmxs
+COQC      theories/ssrsearch/ssrsearch.v
+OCAMLOPT  plugins/extraction/table.ml
+OCAMLOPT  plugins/extraction/mlutil.ml
+OCAMLOPT  plugins/extraction/modutil.ml
+OCAMLOPT  plugins/extraction/extraction.ml
+OCAMLOPT  plugins/extraction/common.ml
+OCAMLOPT  plugins/extraction/ocaml.ml
+OCAMLOPT  plugins/extraction/haskell.ml
+OCAMLOPT  plugins/extraction/scheme.ml
+OCAMLOPT  plugins/extraction/json.ml
+OCAMLOPT  plugins/extraction/extract_env.ml
+OCAMLOPT  plugins/extraction/g_extraction.ml
+OCAMLOPT -pack -o plugins/extraction/extraction_plugin.cmx
+OCAMLOPT -shared -o plugins/extraction/extraction_plugin.cmxs
+COQC      theories/extraction/Extraction.v
+OCAMLOPT  plugins/funind/indfun_common.ml
+OCAMLOPT  plugins/funind/glob_termops.ml
+OCAMLOPT  plugins/funind/recdef.ml
+OCAMLOPT  plugins/funind/glob_term_to_relation.ml
+OCAMLOPT  plugins/funind/functional_principles_proofs.ml
+OCAMLOPT  plugins/funind/functional_principles_types.ml
+OCAMLOPT  plugins/funind/invfun.ml
+OCAMLOPT  plugins/funind/indfun.ml
+OCAMLOPT  plugins/funind/gen_principle.ml
+OCAMLOPT  plugins/funind/g_indfun.ml
+OCAMLOPT -pack -o plugins/funind/recdef_plugin.cmx
+OCAMLOPT -shared -o plugins/funind/recdef_plugin.cmxs
+COQC      theories/funind/FunInd.v
+COQC      theories/Program/Basics.v
+COQC      theories/Classes/Init.v
+COQC      theories/Program/Tactics.v
+COQC      theories/Classes/CRelationClasses.v
+COQC      theories/Relations/Relation_Definitions.v
+COQC      theories/Classes/CMorphisms.v
+COQC      theories/Classes/RelationClasses.v
+COQC      theories/Classes/Morphisms.v
+COQC      theories/Classes/Morphisms_Prop.v
+COQC      theories/Classes/Equivalence.v
+COQC      theories/Classes/SetoidTactics.v
+COQC      theories/ssr/ssrsetoid.v
+COQC      theories/Setoids/Setoid.v
+COQC      theories/Structures/Equalities.v
+COQC      theories/Relations/Relation_Operators.v
+COQC      theories/Relations/Operators_Properties.v
+COQC      theories/Relations/Relations.v
+COQC      theories/Structures/Orders.v
+COQC      theories/Numbers/NumPrelude.v
+COQC      theories/Structures/OrdersTac.v
+COQC      theories/Structures/OrdersFacts.v
+COQC      theories/Structures/GenericMinMax.v
+COQC      theories/Numbers/NatInt/NZAxioms.v
+COQC      theories/Numbers/NatInt/NZBase.v
+COQC      theories/Numbers/NatInt/NZAdd.v
+COQC      theories/Numbers/NatInt/NZMul.v
+COQC      theories/Logic/Decidable.v
+COQC      theories/Numbers/NatInt/NZOrder.v
+COQC      theories/Numbers/NatInt/NZAddOrder.v
+COQC      theories/Numbers/NatInt/NZMulOrder.v
+COQC      theories/Numbers/NatInt/NZParity.v
+COQC      theories/Numbers/NatInt/NZPow.v
+COQC      theories/Numbers/NatInt/NZSqrt.v
+COQC      theories/Numbers/NatInt/NZLog.v
+COQC      theories/Numbers/NatInt/NZDiv.v
+COQC      theories/Numbers/NatInt/NZGcd.v
+COQC      theories/Numbers/NatInt/NZBits.v
+COQC      theories/Numbers/Natural/Abstract/NAxioms.v
+COQC      theories/Numbers/NatInt/NZProperties.v
+COQC      theories/Numbers/Natural/Abstract/NBase.v
+COQC      theories/Numbers/Natural/Abstract/NAdd.v
+COQC      theories/Numbers/Natural/Abstract/NOrder.v
+COQC      theories/Numbers/Natural/Abstract/NAddOrder.v
+COQC      theories/Numbers/Natural/Abstract/NMulOrder.v
+COQC      theories/Numbers/Natural/Abstract/NSub.v
+COQC      theories/Numbers/Natural/Abstract/NMaxMin.v
+COQC      theories/Numbers/Natural/Abstract/NParity.v
+COQC      theories/Numbers/Natural/Abstract/NPow.v
+COQC      theories/Numbers/Natural/Abstract/NSqrt.v
+COQC      theories/Numbers/Natural/Abstract/NLog.v
+COQC      theories/Numbers/Natural/Abstract/NDiv.v
+COQC      theories/Numbers/Natural/Abstract/NGcd.v
+COQC      theories/Numbers/Natural/Abstract/NLcm.v
+COQC      theories/Numbers/Natural/Abstract/NBits.v
+COQC      theories/Numbers/Natural/Abstract/NProperties.v
+COQC      theories/Arith/PeanoNat.v
+COQC      theories/Arith/Le.v
+COQC      theories/Arith/Lt.v
+COQC      theories/Arith/Plus.v
+COQC      theories/Arith/Gt.v
+COQC      theories/Arith/Minus.v
+COQC      theories/Lists/List.v
+COQC      theories/Sets/Relations_1.v
+COQC      theories/Sorting/Sorted.v
+File "./theories/Sorting/Sorted.v", line 124, characters 4-33:
+Error: Cannot instantiate metavariable P of type "list A -> Prop" with
+abstraction
+"fun l0 : list A =>
+ match
+   l0 as H
+   return
+     match H with
+     | [ ] => IDProp
+     | _ :: _ =>
+         match H with
+         | [ ] => forall A : Prop, A -> A
+         | _ :: _ => Prop
+         end
+     end
+ with
+ | [ ] => idProp
+ | a :: l => Forall (R a) l
+ end" of incompatible type
+"forall l0 : list A,
+ match l0 with
+ | [ ] => IDProp
+ | _ :: _ =>
+     match l0 with
+     | [ ] => forall A : Prop, A -> A
+     | _ :: _ => Prop
+     end
+ end".
+
+make[1]: *** [Makefile.build:870: theories/Sorting/Sorted.vo] Error 1
+COQC      theories/Numbers/BinNums.v
+COQC      theories/Logic/EqdepFacts.v
+COQC      theories/Logic/Eqdep_dec.v
+COQC      theories/PArith/BinPosDef.v
+COQC      theories/PArith/BinPos.v
+COQC      theories/NArith/BinNatDef.v
+COQC      theories/NArith/BinNat.v
+COQC      theories/PArith/Pnat.v
+COQC      theories/Numbers/Integer/Abstract/ZAxioms.v
+COQC      theories/Numbers/Integer/Abstract/ZBase.v
+COQC      theories/Numbers/Integer/Abstract/ZAdd.v
+COQC      theories/Numbers/Integer/Abstract/ZMul.v
+COQC      theories/Numbers/Integer/Abstract/ZLt.v
+COQC      theories/Numbers/Integer/Abstract/ZAddOrder.v
+COQC      theories/Numbers/Integer/Abstract/ZMulOrder.v
+COQC      theories/Numbers/Integer/Abstract/ZMaxMin.v
+COQC      theories/Numbers/Integer/Abstract/ZSgnAbs.v
+COQC      theories/Numbers/Integer/Abstract/ZParity.v
+COQC      theories/Numbers/Integer/Abstract/ZPow.v
+COQC      theories/Numbers/Integer/Abstract/ZDivTrunc.v
+COQC      theories/Numbers/Integer/Abstract/ZDivFloor.v
+COQC      theories/Numbers/Integer/Abstract/ZGcd.v
+COQC      theories/Numbers/Integer/Abstract/ZLcm.v
+COQC      theories/Numbers/Integer/Abstract/ZBits.v
+COQC      theories/Numbers/Integer/Abstract/ZProperties.v
+COQC      theories/ZArith/BinIntDef.v
+COQC      theories/ZArith/BinInt.v
+COQC      theories/Arith/Mult.v
+COQC      theories/ZArith/Zcompare.v
+COQC      theories/Arith/Between.v
+COQC      theories/Arith/Peano_dec.v
+COQC      theories/Arith/Compare_dec.v
+COQC      theories/Arith/Factorial.v
+COQC      theories/Arith/EqNat.v
+COQC      theories/Arith/Wf_nat.v
+COQC      theories/Arith/Arith_base.v
+COQC      theories/ZArith/Zorder.v
+COQC      theories/ZArith/Zeven.v
+COQC      theories/ZArith/Zminmax.v
+COQC      theories/ZArith/Zmin.v
+COQC      theories/ZArith/Zmax.v
+COQC      theories/NArith/Nnat.v
+COQC      theories/ZArith/Znat.v
+COQC      theories/Bool/Sumbool.v
+COQC      theories/ZArith/ZArith_dec.v
+COQC      theories/ZArith/Zabs.v
+COQC      theories/ZArith/auxiliary.v
+COQC      theories/ZArith/Zbool.v
+COQC      theories/ZArith/Zmisc.v
+COQC      theories/ZArith/Wf_Z.v
+COQC      theories/ZArith/Zhints.v
+COQC      theories/ZArith/ZArith_base.v
+COQC      theories/setoid_ring/Ring_theory.v
+COQC      theories/ZArith/Zpow_def.v
+COQC      theories/omega/OmegaLemmas.v
+OCAMLOPT  plugins/ring/ring_ast.ml
+OCAMLOPT  plugins/ring/ring.ml
+OCAMLOPT  plugins/ring/g_ring.ml
+OCAMLOPT -pack -o plugins/ring/ring_plugin.cmx
+OCAMLOPT -shared -o plugins/ring/ring_plugin.cmxs
+COQC      theories/setoid_ring/BinList.v
+COQC      theories/setoid_ring/Ring_polynom.v
+File "./theories/setoid_ring/Ring_polynom.v", line 1077, characters 3-4:
+Error: [Focus] Wrong bullet -: Current bullet - is not finished.
+
+make[1]: *** [Makefile.build:870: theories/setoid_ring/Ring_polynom.vo] Error 1
+COQC      theories/Lists/ListTactics.v
+COQC      theories/Arith/Max.v
+COQC      theories/Arith/Min.v
+COQC      theories/micromega/ZifyClasses.v
+OCAMLOPT  plugins/micromega/zify.ml
+OCAMLOPT  plugins/micromega/g_zify.ml
+OCAMLOPT -pack -o plugins/micromega/zify_plugin.cmx
+OCAMLOPT -shared -o plugins/micromega/zify_plugin.cmxs
+COQC      theories/NArith/Ndiv_def.v
+COQC      theories/NArith/Nsqrt_def.v
+COQC      theories/NArith/Ngcd_def.v
+COQC      theories/Vectors/Fin.v
+COQC      theories/Vectors/VectorDef.v
+COQC      theories/Vectors/VectorSpec.v
+File "./theories/Vectors/VectorSpec.v", line 102, characters 55-56:
+Error:
+In environment
+A : Type
+n0 : nat
+v : VectorDef.t A (S (S n0))
+h0 : A
+n2 : nat
+t1 : VectorDef.t A n2
+a := h0 : A
+n1 := n2 : nat
+t0 := t1 : VectorDef.t A n2
+h := a : A
+t := t0 : VectorDef.t A n2
+t2 := v : VectorDef.t A (S (S n0))
+The term "I" has type "True" while it is expected to have type
+ "match n1 as H return (VectorDef.t A (S H) -> Prop) with
+  | 0 => fun _ : VectorDef.t A 1 => True
+  | S n =>
+      fun v : VectorDef.t A (S (S n)) =>
+      forall p : Fin.t (S n),
+      (forall v0 : VectorDef.t A (S n),
+       (shiftrepeat v0)[@Fin.L_R 1 p] = v0[@p]) ->
+      (shiftrepeat v)[@Fin.L_R 1 (Fin.FS p)] = v[@Fin.FS p]
+  end (a :: t0)".
+
+make[1]: *** [Makefile.build:870: theories/Vectors/VectorSpec.vo] Error 1
+COQC      theories/Strings/Byte.v
+File "./theories/Strings/Byte.v", line 590, characters 2-6:
+Error:  (in proof to_of_nat): Attempt to save an incomplete proof
+
+make[1]: *** [Makefile.build:870: theories/Strings/Byte.vo] Error 1
+COQC      theories/micromega/Env.v
+COQC      theories/micromega/EnvRing.v
+File "./theories/micromega/EnvRing.v", line 1105, characters 3-4:
+Error: [Focus] Wrong bullet -: Current bullet - is not finished.
+
+make[1]: *** [Makefile.build:870: theories/micromega/EnvRing.vo] Error 1
+COQC      theories/micromega/Refl.v
+COQC      theories/micromega/Tauto.v
+File "./theories/micromega/Tauto.v", line 308, characters 19-20:
+Error:
+In environment
+TA : Type
+TA' : Type
+TX : kind -> Type
+AA : Type
+AF : Type
+map_bformula : forall k : kind, (TA -> TA') -> GFormula k -> GFormula k
+k : kind
+fct : TA -> TA'
+f : GFormula k
+k0 : kind
+p : TX k0
+The term "p" has type "TX k0" while it is expected to have type
+ "?TX@{k0:=k; k2:=k0; p0:=p; k1:=k0; t:=p; k:=k0; p:=p} k0"
+(unable to find a well-typed instantiation for "?TX": cannot ensure that
+"Type" is a subtype of "kind -> Type").
+
+make[1]: *** [Makefile.build:870: theories/micromega/Tauto.vo] Error 1
+COQC      theories/micromega/VarMap.v
+OCAMLOPT  plugins/micromega/certificate.ml
+OCAMLC    plugins/micromega/coq_micromega.mli
+OCAMLOPT  plugins/micromega/coq_micromega.ml
+OCAMLOPT  plugins/micromega/g_micromega.ml
+OCAMLOPT -pack -o plugins/micromega/micromega_plugin.cmx
+OCAMLOPT -shared -o plugins/micromega/micromega_plugin.cmxs
+OCAMLC    plugins/omega/coq_omega.mli
+OCAMLOPT  plugins/omega/coq_omega.ml
+OCAMLC    plugins/omega/g_omega.ml
+OCAMLOPT  plugins/omega/g_omega.ml
+OCAMLOPT -pack -o plugins/omega/omega_plugin.cmx
+OCAMLOPT -shared -o plugins/omega/omega_plugin.cmxs
+COQC      theories/ZArith/Int.v
+COQC      theories/funind/Recdef.v
+COQC      theories/Sets/Ensembles.v
+COQC      theories/Sets/Constructive_sets.v
+COQC      theories/Sets/Finite_sets.v
+COQC      theories/Lists/ListDec.v
+COQC      theories/Lists/ListSet.v
+COQC      theories/Logic/FinFun.v
+COQC      theories/Sorting/Permutation.v
+COQC      theories/Lists/Streams.v
+COQC      theories/Lists/StreamMemo.v
+File "./theories/Lists/StreamMemo.v", line 143, characters 55-57:
+Error:
+In environment
+A : nat -> Type
+f : forall n : nat, A n
+mf := fun n : nat => memo_mval n (f n) : nat -> memo_val
+g : forall n : nat, A n -> A (S n)
+Hg_correct : forall n : nat, f (S n) = g n (f n)
+v : StreamMemo.memo_val ?T
+n1 : nat
+v1 : ?T n1
+The term "v1" has type "?T n1" while it is expected to have type 
+"A n1" (cannot instantiate "?T" because "n1" is not in its scope: available
+arguments are "A" "f" "mf" "g" "Hg_correct").
+
+make[1]: *** [Makefile.build:870: theories/Lists/StreamMemo.vo] Error 1
+COQC      theories/PArith/POrderedType.v
+COQC      theories/PArith/PArith.v
+OCAMLC    plugins/btauto/refl_btauto.mli
+OCAMLOPT  plugins/btauto/refl_btauto.ml
+OCAMLC    plugins/btauto/g_btauto.ml
+OCAMLOPT  plugins/btauto/g_btauto.ml
+OCAMLOPT -pack -o plugins/btauto/btauto_plugin.cmx
+OCAMLOPT -shared -o plugins/btauto/btauto_plugin.cmxs
+COQC      theories/Bool/BoolOrder.v
+COQC      theories/Bool/BoolEq.v
+COQC      theories/Bool/IfProp.v
+COQC      theories/Bool/DecBool.v
+COQC      theories/Arith/Bool_nat.v
+COQC      theories/Arith/Euclid.v
+COQC      theories/Arith/Even.v
+COQC      theories/Arith/Div2.v
+COQC      theories/Arith/Compare.v
+COQC      theories/Numbers/Natural/Binary/NBinary.v
+COQC      theories/Numbers/Natural/Peano/NPeano.v
+COQC      theories/Numbers/Natural/Abstract/NStrongRec.v
+COQC      theories/Numbers/Natural/Abstract/NIso.v
+COQC      theories/Numbers/NaryFunctions.v
+COQC      theories/Numbers/Cyclic/Abstract/CarryType.v
+COQC      theories/Numbers/Cyclic/Abstract/DoubleType.v
+COQC      theories/Unicode/Utf8_core.v
+COQC      theories/Unicode/Utf8.v
+OCAMLC    plugins/syntax/int63_syntax.ml
+OCAMLOPT  plugins/syntax/int63_syntax.ml
+OCAMLOPT -pack -o plugins/syntax/int63_syntax_plugin.cmx
+OCAMLOPT -shared -o plugins/syntax/int63_syntax_plugin.cmxs
+COQC      theories/Numbers/Cyclic/Int63/PrimInt63.v
+COQC      theories/Logic/FunctionalExtensionality.v
+COQC      theories/Logic/HLevels.v
+COQC      theories/Numbers/Integer/Binary/ZBinary.v
+COQC      theories/Numbers/Integer/Abstract/ZDivEucl.v
+COQC      theories/Numbers/NatInt/NZDomain.v
+COQC      theories/Numbers/AltBinNotations.v
+COQC      theories/Sets/Relations_1_facts.v
+COQC      theories/Sets/Partial_Order.v
+COQC      theories/Sets/Cpo.v
+COQC      theories/Sets/Powerset.v
+COQC      theories/Sets/Powerset_facts.v
+COQC      theories/Sets/Permut.v
+COQC      theories/Sets/Multiset.v
+COQC      theories/Logic/PropExtensionalityFacts.v
+COQC      theories/Logic/Hurkens.v
+COQC      theories/Logic/ClassicalFacts.v
+COQC      theories/Logic/Classical_Prop.v
+COQC      theories/Logic/Classical_Pred_Type.v
+COQC      theories/Logic/Classical.v
+COQC      theories/Sets/Classical_sets.v
+COQC      theories/Sets/Powerset_Classical_facts.v
+COQC      theories/Sets/Finite_sets_facts.v
+COQC      theories/Sets/Image.v
+COQC      theories/Sets/Relations_2.v
+COQC      theories/Sets/Relations_3.v
+COQC      theories/Sets/Relations_2_facts.v
+COQC      theories/Sets/Relations_3_facts.v
+COQC      theories/Sets/Infinite_sets.v
+COQC      theories/Sets/Integers.v
+COQC      theories/Sets/Uniset.v
+COQC      theories/setoid_ring/Algebra_syntax.v
+COQC      theories/setoid_ring/Ncring.v
+OCAMLC    plugins/nsatz/nsatz.mli
+OCAMLOPT  plugins/nsatz/nsatz.ml
+OCAMLC    plugins/nsatz/g_nsatz.ml
+OCAMLOPT  plugins/nsatz/g_nsatz.ml
+OCAMLOPT -pack -o plugins/nsatz/nsatz_plugin.cmx
+OCAMLOPT -shared -o plugins/nsatz/nsatz_plugin.cmxs
+COQC      theories/extraction/ExtrOcamlBasic.v
+COQC      theories/Floats/FloatClass.v
+OCAMLC    plugins/syntax/float_syntax.ml
+OCAMLOPT  plugins/syntax/float_syntax.ml
+OCAMLOPT -pack -o plugins/syntax/float_syntax_plugin.cmx
+OCAMLOPT -shared -o plugins/syntax/float_syntax_plugin.cmxs
+COQC      theories/Floats/PrimFloat.v
+COQC      theories/extraction/ExtrHaskellBasic.v
+COQC      theories/ZArith/Zpow_alt.v
+COQC      theories/ZArith/Zeuclid.v
+COQC      theories/ssr/ssrfun.v
+COQC      theories/ssr/ssrbool.v
+File "./theories/ssr/ssrbool.v", line 472, characters 0-44:
+Error: Anomaly "Not a sort." Please report at http://coq.inria.fr/bugs/.
+
+make[1]: *** [Makefile.build:870: theories/ssr/ssrbool.vo] Error 129
+COQC      theories/Wellfounded/Transitive_Closure.v
+COQC      theories/Wellfounded/Lexicographic_Exponentiation.v
+COQC      theories/Wellfounded/Union.v
+COQC      theories/Wellfounded/Inverse_Image.v
+COQC      theories/Wellfounded/Disjoint_Union.v
+COQC      theories/Wellfounded/Inclusion.v
+COQC      theories/Logic/Eqdep.v
+COQC      theories/Wellfounded/Lexicographic_Product.v
+COQC      theories/Wellfounded/Well_Ordering.v
+COQC      theories/Wellfounded/Wellfounded.v
+OCAMLC    plugins/derive/derive.mli
+OCAMLOPT  plugins/derive/derive.ml
+OCAMLC    plugins/derive/g_derive.ml
+OCAMLOPT  plugins/derive/g_derive.ml
+OCAMLOPT -pack -o plugins/derive/derive_plugin.cmx
+OCAMLOPT -shared -o plugins/derive/derive_plugin.cmxs
+COQC      theories/derive/Derive.v
+COQC      theories/Logic/ProofIrrelevanceFacts.v
+COQC      theories/Logic/ClassicalUniqueChoice.v
+COQC      theories/Logic/RelationalChoice.v
+COQC      theories/Logic/ExtensionalFunctionRepresentative.v
+COQC      theories/Logic/WeakFan.v
+COQC      theories/Logic/PropExtensionality.v
+COQC      theories/Logic/Berardi.v
+COQC      theories/Logic/JMeq.v
+COQC      theories/Logic/PropFacts.v
+COQC      theories/Logic/StrictProp.v
+COQC      theories/Logic/ProofIrrelevance.v
+COQC      theories/Logic/ExtensionalityFacts.v
+COQC      theories/Logic/SetIsType.v
+COQC      theories/Program/Equality.v
+COQC      theories/Program/Utils.v
+COQC      theories/Program/Wf.v
+COQC      theories/Program/Subset.v
+COQC      theories/Program/Combinators.v
+COQC      theories/Compat/Coq814.v
+COQC      theories/Compat/Coq813.v
+COQC      theories/Compat/Coq812.v
+COQC      theories/Compat/Coq811.v
+COQC      theories/Compat/AdmitAxiom.v
+COQC      theories/Classes/CEquivalence.v
+COQC      theories/rtauto/Bintree.v
+OCAMLOPT  plugins/rtauto/proof_search.ml
+OCAMLC    plugins/rtauto/refl_tauto.mli
+OCAMLOPT  plugins/rtauto/refl_tauto.ml
+OCAMLC    plugins/rtauto/g_rtauto.ml
+OCAMLOPT  plugins/rtauto/g_rtauto.ml
+OCAMLOPT -pack -o plugins/rtauto/rtauto_plugin.cmx
+OCAMLOPT -shared -o plugins/rtauto/rtauto_plugin.cmxs
+COQC      theories/rtauto/Rtauto.v
+File "./theories/rtauto/Rtauto.v", line 275, characters 21-25:
+Error: The reference f0_1 was not found in the current environment.
+
+make[1]: *** [Makefile.build:870: theories/rtauto/Rtauto.vo] Error 1
+COQC      theories/Sorting/CPermutation.v
+OCAMLC    user-contrib/Ltac2/tac2ffi.mli
+OCAMLOPT  user-contrib/Ltac2/tac2ffi.ml
+OCAMLC    user-contrib/Ltac2/tac2env.mli
+OCAMLOPT  user-contrib/Ltac2/tac2env.ml
+OCAMLC    user-contrib/Ltac2/tac2print.mli
+OCAMLOPT  user-contrib/Ltac2/tac2print.ml
+OCAMLC    user-contrib/Ltac2/tac2intern.mli
+OCAMLOPT  user-contrib/Ltac2/tac2intern.ml
+OCAMLC    user-contrib/Ltac2/tac2interp.mli
+OCAMLOPT  user-contrib/Ltac2/tac2interp.ml
+OCAMLC    user-contrib/Ltac2/tac2qexpr.mli
+OCAMLC    user-contrib/Ltac2/tac2entries.mli
+OCAMLOPT  user-contrib/Ltac2/tac2entries.ml
+OCAMLC    user-contrib/Ltac2/tac2quote.mli
+OCAMLOPT  user-contrib/Ltac2/tac2quote.ml
+OCAMLC    user-contrib/Ltac2/tac2match.mli
+OCAMLOPT  user-contrib/Ltac2/tac2match.ml
+OCAMLC    user-contrib/Ltac2/tac2core.mli
+OCAMLOPT  user-contrib/Ltac2/tac2core.ml
+OCAMLC    user-contrib/Ltac2/tac2types.mli
+OCAMLC    user-contrib/Ltac2/tac2extffi.mli
+OCAMLOPT  user-contrib/Ltac2/tac2extffi.ml
+OCAMLC    user-contrib/Ltac2/tac2tactics.mli
+OCAMLOPT  user-contrib/Ltac2/tac2tactics.ml
+OCAMLOPT  user-contrib/Ltac2/tac2stdlib.ml
+OCAMLC    user-contrib/Ltac2/g_ltac2.ml
+OCAMLOPT  user-contrib/Ltac2/g_ltac2.ml
+OCAMLOPT -pack -o user-contrib/Ltac2/ltac2_plugin.cmx
+OCAMLOPT -shared -o user-contrib/Ltac2/ltac2_plugin.cmxs
+COQC      user-contrib/Ltac2/Init.v
+COQC      user-contrib/Ltac2/Int.v
+COQC      user-contrib/Ltac2/Message.v
+COQC      user-contrib/Ltac2/Control.v
+COQC      user-contrib/Ltac2/Bool.v
+COQC      user-contrib/Ltac2/List.v
+COQC      user-contrib/Ltac2/Pattern.v
+COQC      user-contrib/Ltac2/Char.v
+COQC      user-contrib/Ltac2/String.v
+COQC      user-contrib/Ltac2/Ident.v
+COQC      user-contrib/Ltac2/Array.v
+COQC      user-contrib/Ltac2/Constr.v
+COQC      user-contrib/Ltac2/Fresh.v
+COQC      user-contrib/Ltac2/Std.v
+COQC      user-contrib/Ltac2/Env.v
+COQC      user-contrib/Ltac2/Ltac1.v
+COQC      user-contrib/Ltac2/Notations.v
+COQC      user-contrib/Ltac2/Ltac2.v
+COQC      user-contrib/Ltac2/Option.v
+COQMKTOP -o bin/coqtop.opt
+COQMKTOP -o bin/coqproofworker.opt
+COQMKTOP -o bin/coqtacticworker.opt
+COQMKTOP -o bin/coqqueryworker.opt
+rm -f bin/coqtop && cp bin/coqtop.opt bin/coqtop
+OCAMLC    checker/checkFlags.mli
+OCAMLOPT  checker/checkFlags.ml
+OCAMLC    checker/checkInductive.mli
+OCAMLOPT  checker/checkInductive.ml
+OCAMLC    checker/mod_checking.mli
+OCAMLOPT  checker/mod_checking.ml
+OCAMLC    checker/checkTypes.mli
+OCAMLOPT  checker/checkTypes.ml
+OCAMLC    checker/safe_checking.mli
+OCAMLOPT  checker/safe_checking.ml
+OCAMLOPT  checker/values.ml
+OCAMLOPT  checker/validate.ml
+OCAMLC    checker/check.mli
+OCAMLOPT  checker/check.ml
+OCAMLC    checker/check_stat.mli
+OCAMLOPT  checker/check_stat.ml
+OCAMLOPT  checker/checker.ml
+OCAMLOPT -a -o checker/check.cmxa
+OCAMLOPT -o bin/coqchk
+COQMKTOP -o bin/coqidetop.opt
+rm -f bin/coqidetop && cp bin/coqidetop.opt bin/coqidetop
+OCAMLBEST -o bin/fake_ide
+OCAMLBEST -o bin/coqdep
+OCAMLBEST -o bin/coq_makefile
+OCAMLBEST -o bin/coqdoc
+OCAMLBEST -o bin/coqworkmgr
+OCAMLOPT  checker/votour.ml
+OCAMLBEST -o bin/votour
+CHECK revision
+make[1]: Target 'world' not remade because of errors.
+make[1]: Leaving directory '/home/tmartine/pir2/coq'
+make: *** [Makefile.make:178: submake] Error 2
+make: Target 'NOARG' not remade because of errors.
+make: Leaving directory '/home/tmartine/pir2/coq'
