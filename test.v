@@ -392,4 +392,4 @@ Qed.
 
 End BugVectorSpec.
 
-Definition addb b := if b then negb else id.
+Definition addb (b : bool) := if b then negb else id.
