@@ -169,6 +169,25 @@ Fixpoint map A B (n : nat) (f : A -> B) (v : vector A n) : vector B n :=
 
 Print map.
 
+Fixpoint mapn' A B (n : nat) (f : A -> B) (v : vector A n) {struct n} : vector B n :=
+  match n, v with
+  | 0, _ => Nil _
+  | S m, v =>
+     match v in vector _ m0 return
+           match m0 return Type with
+           | O => IDProp
+           | S m0' => m = m0' -> vector B (S m0')
+           end with
+     | Cons _ m' hd tl => fun (eq : m = m') =>
+       match eq in _ = m0 return vector A m0 -> vector B (S m0) with
+       | eq_refl => fun tl' =>
+         Cons _ _ (f hd) (mapn' _ _ m f tl')
+       end tl
+     end eq_refl
+  end.
+
+Print mapn'.
+
 (*
 Fixpoint mapn A B (n : nat) (f : A -> B) (v : vector A n) : vector B n :=
   match n, v with
@@ -200,7 +219,7 @@ Fixpoint map2' A0 A1 B (n : nat) (f : A0 -> A1 -> B) (v0 : vector A0 n) (v1 : ve
      end with
      | Nil _ => idProp
      | Cons _ n1 hd1 tl1 => fun tl0 : vector A0 n1 =>
-         Cons _ n1 (*bug!*) (f hd0 hd1) (map2' A0 A1 B _ f tl0 tl1)
+         Cons _ _ (f hd0 hd1) (map2' A0 A1 B _ f tl0 tl1)
      end tl0
   end v1.
 
@@ -266,10 +285,6 @@ Section Projections.
     match x with ex_intro _ _ _ b => b end.
 
 End Projections.
-
-Inductive bool : Set :=
-  | true : bool
-  | false : bool.
 
 Definition andb (b1 b2:bool) : bool := if b1 then b2 else false.
 
@@ -376,3 +391,5 @@ refine (@Fin.rectS _ _ _); lazy beta; [ intros n v | intros n p H v ].
 Qed.
 
 End BugVectorSpec.
+
+Definition addb b := if b then negb else id.
