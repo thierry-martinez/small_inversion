@@ -64,6 +64,20 @@ Inductive vector (A : Type) : nat -> Type :=
 | Nil : vector A O
 | Cons n (_ : A) (_ : vector A n) : vector A (S n).
 
+Definition rectS {A} (P:forall {n}, vector A (S n) -> Type)
+ (bas: forall a: A, P (Cons _ _ a (Nil _)))
+ (rect: forall a {n} (v: vector A (S n)), P v -> P (Cons _ _ a v)) :=
+ fix rectS_fix {n} (v: vector A (S n)) : P v :=
+ match v with
+ |Cons _ 0 a v =>
+   match v with
+     |Nil _ => bas a
+     |_ => fun devil => False_ind (@IDProp) devil (* subterm !!! *)
+   end
+ |Cons _ (S nn') a v => vector_rect a v (rectS_fix v)
+ |_ => fun devil => False_ind (@IDProp) devil (* subterm !!! *)
+ end.
+
 Definition head' (A : Type) (n : nat) (v : vector A (S n)) :=
   match v in vector _ n0 return match n0 return Type with
   | S m => A
@@ -169,25 +183,6 @@ Fixpoint map A B (n : nat) (f : A -> B) (v : vector A n) : vector B n :=
 
 Print map.
 
-Fixpoint mapn' A B (n : nat) (f : A -> B) (v : vector A n) {struct n} : vector B n :=
-  match n, v with
-  | 0, _ => Nil _
-  | S m, v =>
-     match v in vector _ m0 return
-           match m0 return Type with
-           | O => IDProp
-           | S m0' => m = m0' -> vector B (S m0')
-           end with
-     | Cons _ m' hd tl => fun (eq : m = m') =>
-       match eq in _ = m0 return vector A m0 -> vector B (S m0) with
-       | eq_refl => fun tl' =>
-         Cons _ _ (f hd) (mapn' _ _ m f tl')
-       end tl
-     end eq_refl
-  end.
-
-Print mapn'.
-
 (*
 Fixpoint mapn A B (n : nat) (f : A -> B) (v : vector A n) : vector B n :=
   match n, v with
@@ -219,7 +214,7 @@ Fixpoint map2' A0 A1 B (n : nat) (f : A0 -> A1 -> B) (v0 : vector A0 n) (v1 : ve
      end with
      | Nil _ => idProp
      | Cons _ n1 hd1 tl1 => fun tl0 : vector A0 n1 =>
-         Cons _ _ (f hd0 hd1) (map2' A0 A1 B _ f tl0 tl1)
+         Cons _ n1 (*bug!*) (f hd0 hd1) (map2' A0 A1 B _ f tl0 tl1)
      end tl0
   end v1.
 
@@ -286,6 +281,10 @@ Section Projections.
 
 End Projections.
 
+Inductive bool : Set :=
+  | true : bool
+  | false : bool.
+
 Definition andb (b1 b2:bool) : bool := if b1 then b2 else false.
 
 Require Import Lists.List.
@@ -342,7 +341,7 @@ Proof.
     destruct x; reflexivity.
 Defined.
 
-Module BugFin.
+Module Fin.
 Inductive t : nat -> Set :=
 |F1 : forall {n}, t (S n)
 |FS : forall {n}, t n -> t (S n).
@@ -367,29 +366,4 @@ match p as p' return t (p' + m) -> t (p' + n) with
   end (eq_refl _)
 end.
 
-End BugFin.
-
-Require Fin.
-Require Import VectorDef PeanoNat Eqdep_dec.
-
-Module BugVectorSpec.
-Import VectorNotations.
-
-
-Lemma shiftrepeat_nth A: forall n k (v: t A (S n)),
-  nth (shiftrepeat v) (Fin.L_R 1 k) = nth v k.
-Proof.
-refine (@Fin.rectS _ _ _); lazy beta; [ intros n v | intros n p H v ].
-- revert n v; refine (@caseS _ _ _); simpl; intros ? ? t. now destruct t.
-- revert p H.
-  refine (match v as v' in t _ m return match m as m' return t A m' -> Prop with
-    |S (S n) => fun v => forall p : Fin.t (S n),
-      (forall v0 : t A (S n), (shiftrepeat v0) [@ Fin.L_R 1 p ] = v0 [@p]) ->
-      (shiftrepeat v) [@Fin.L_R 1 (Fin.FS p)] = v [@Fin.FS p]
-    |_ => fun _ => True end v' with
-  |[] => I | cons _ h n t => _ end). destruct n. exact I. now simpl.
-Qed.
-
-End BugVectorSpec.
-
-Definition addb (b : bool) := if b then negb else id.
+End Fin.
