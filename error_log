@@ -1,6 +1,90 @@
-rm -f  
+m -f  
 make --warn-undefined-variable --no-builtin-rules -f Makefile.build 
 make[1]: Entering directory '/home/tmartine/pir2/coq'
+OCAMLDEP  MLFILES MLIFILES
+OCAMLOPT  pretyping/cases.ml
+OCAMLOPT  pretyping/pretyping.ml
+OCAMLOPT  pretyping/unification.ml
+OCAMLOPT -a -o pretyping/pretyping.cmxa
+OCAMLOPT  interp/constrintern.ml
+OCAMLOPT  interp/modintern.ml
+OCAMLOPT  interp/constrextern.ml
+File "interp/constrextern.ml", line 201, characters 30-35:
+201 | let toggle_notation_printing ?scope ~notation ~activate =
+                                    ^^^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT -a -o interp/interp.cmxa
+OCAMLOPT  proofs/evar_refiner.ml
+OCAMLOPT  proofs/proof.ml
+OCAMLOPT  proofs/proof_bullet.ml
+OCAMLOPT  proofs/clenv.ml
+OCAMLOPT -a -o proofs/proofs.cmxa
+OCAMLOPT  printing/ppconstr.ml
+OCAMLOPT  printing/proof_diffs.ml
+OCAMLOPT  printing/printer.ml
+OCAMLOPT -a -o printing/printing.cmxa
+OCAMLOPT  tactics/tactics.ml
+OCAMLOPT  tactics/abstract.ml
+OCAMLOPT  tactics/elim.ml
+OCAMLOPT  tactics/equality.ml
+OCAMLOPT  tactics/contradiction.ml
+OCAMLOPT  tactics/inv.ml
+OCAMLOPT  tactics/hints.ml
+OCAMLOPT  tactics/auto.ml
+OCAMLOPT  tactics/eauto.ml
+OCAMLOPT  tactics/class_tactics.ml
+OCAMLOPT  tactics/eqdecide.ml
+OCAMLOPT  tactics/autorewrite.ml
+OCAMLOPT -a -o tactics/tactics.cmxa
+OCAMLOPT  vernac/declaremods.ml
+OCAMLOPT  vernac/vernacexpr.ml
+OCAMLOPT  vernac/pvernac.ml
+OCAMLOPT  vernac/g_vernac.ml
+OCAMLOPT  vernac/g_proofs.ml
+OCAMLOPT  vernac/vernacprop.ml
+OCAMLOPT  vernac/himsg.ml
+OCAMLOPT  vernac/locality.ml
+OCAMLOPT  vernac/egramml.ml
+OCAMLOPT  vernac/library.ml
+OCAMLOPT  vernac/ppvernac.ml
+OCAMLOPT  vernac/proof_using.ml
+OCAMLOPT  vernac/metasyntax.ml
+OCAMLOPT  vernac/declareUniv.ml
+OCAMLOPT  vernac/declare.ml
+OCAMLOPT  vernac/vernacstate.ml
+OCAMLOPT  vernac/vernacextend.ml
+File "vernac/vernacextend.ml", line 97, characters 36-39:
+97 | let type_vernac opn converted_args ?loc ~atts =
+                                         ^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  vernac/comHints.ml
+OCAMLOPT  vernac/recLemmas.ml
+OCAMLOPT  vernac/comCoercion.ml
+File "vernac/comCoercion.ml", line 265, characters 28-41:
+265 | let declare_coercion coef ?(local = false) ~isid ~src:cls ~target:clt ~params:ps =
+                                  ^^^^^^^^^^^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  vernac/auto_ind_decl.ml
+OCAMLOPT  vernac/indschemes.ml
+OCAMLOPT  vernac/comDefinition.ml
+OCAMLOPT  vernac/classes.ml
+OCAMLOPT  vernac/comPrimitive.ml
+OCAMLOPT  vernac/comAssumption.ml
+OCAMLOPT  vernac/declareInd.ml
+OCAMLOPT  vernac/search.ml
+OCAMLOPT  vernac/comSearch.ml
+OCAMLOPT  vernac/comInductive.ml
+OCAMLOPT  vernac/comFixpoint.ml
+OCAMLOPT  vernac/comProgramFixpoint.ml
+OCAMLOPT  vernac/printmod.ml
+OCAMLOPT  vernac/prettyp.ml
+OCAMLOPT  vernac/record.ml
+OCAMLOPT  vernac/assumptions.ml
+OCAMLOPT  vernac/mltop.ml
+OCAMLOPT  vernac/topfmt.ml
+OCAMLOPT  vernac/loadpath.ml
+OCAMLOPT  vernac/comArguments.ml
+OCAMLOPT  vernac/vernacentries.ml
 OCAMLOPT  vernac/comTactic.ml
 OCAMLOPT  vernac/vernacinterp.ml
 OCAMLOPT  vernac/vernac_classifier.ml
@@ -457,79 +541,11 @@ COQC      theories/Arith/Minus.v
 COQC      theories/Lists/List.v
 COQC      theories/Sets/Relations_1.v
 COQC      theories/Sorting/Sorted.v
-File "./theories/Sorting/Sorted.v", line 124, characters 4-33:
-Error: Cannot instantiate metavariable P of type "list A -> Prop" with
-abstraction
-"fun l0 : list A =>
- match
-   l0 as H
-   return
-     match H with
-     | [ ] => IDProp
-     | _ :: _ =>
-         match H with
-         | [ ] => forall A : Prop, A -> A
-         | _ :: _ => Prop
-         end
-     end
- with
- | [ ] => idProp
- | a :: l => Forall (R a) l
- end" of incompatible type
-"forall l0 : list A,
- match l0 with
- | [ ] => IDProp
- | _ :: _ =>
-     match l0 with
-     | [ ] => forall A : Prop, A -> A
-     | _ :: _ => Prop
-     end
- end".
-Raised at Unification.w_unify in file "pretyping/unification.ml", line 2063, characters 22-30
-Called from Clenv.clenv_unify in file "proofs/clenv.ml", line 317, characters 25-73
-Called from Clenv.clenv_unique_resolver in file "proofs/clenv.ml" (inlined), line 332, characters 2-46
-Called from Clenv.res_pf.(fun) in file "proofs/clenv.ml", line 675, characters 16-53
-Called from Proofview.Goal.enter.f in file "engine/proofview.ml", line 1120, characters 40-46
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Proof.run_tactic in file "proofs/proof.ml", line 381, characters 4-49
-Called from Proof.solve in file "proofs/proof.ml", line 567, characters 31-52
-Called from ComTactic.solve_core.(fun) in file "vernac/comTactic.ml", line 46, characters 23-59
-Called from Declare.Proof.map_fold_endline in file "vernac/declare.ml", line 1360, characters 20-33
-Called from ComTactic.solve_core in file "vernac/comTactic.ml", line 43, characters 23-442
-Called from Vernacstate.LemmaStack.map_top in file "vernac/vernacstate.ml", line 84, characters 30-34
-Called from Option.map in file "clib/option.ml", line 102, characters 19-24
-Called from Vernacinterp.interp_typed_vernac in file "vernac/vernacinterp.ml", line 42, characters 4-82
-Called from Vernacinterp.interp_control.(fun) in file "vernac/vernacinterp.ml", line 215, characters 24-69
-Called from Flags.with_modified_ref in file "lib/flags.ml", line 17, characters 14-17
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Vernacinterp.interp_gen.(fun) in file "vernac/vernacinterp.ml", line 264, characters 18-43
-Called from Vernacinterp.interp_gen in file "vernac/vernacinterp.ml", line 262, characters 6-279
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Stm.Reach.known_state.reach.(fun) in file "stm/stm.ml", line 2145, characters 20-47
-Called from Stm.Reach.known_state.resilient_tactic in file "stm/stm.ml", line 2082, characters 10-14
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Stm.State.define in file "stm/stm.ml", line 957, characters 6-10
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Stm.Reach.known_state.reach in file "stm/stm.ml", line 2296, characters 4-105
-Called from Stm.observe in file "stm/stm.ml", line 2397, characters 4-60
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Vernac.interp_vernac in file "toplevel/vernac.ml", line 68, characters 31-52
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Flags.with_modified_ref in file "lib/flags.ml", line 17, characters 14-17
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Flags.silently in file "lib/flags.ml" (inlined), line 66, characters 19-40
-Called from Vernac.load_vernac_core.loop in file "toplevel/vernac.ml", line 111, characters 8-69
-Called from Vernac.load_vernac_core in file "toplevel/vernac.ml", line 115, characters 6-19
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Vernac.load_vernac in file "toplevel/vernac.ml", line 171, characters 30-88
-Called from Ccompile.compile in file "toplevel/ccompile.ml", line 143, characters 18-89
-Called from Ccompile.compile in file "toplevel/ccompile.ml" (inlined), line 208, characters 2-59
-Called from Ccompile.compile_file in file "toplevel/ccompile.ml", line 217, characters 4-61
-Called from Coqc.coqc_main in file "toplevel/coqc.ml", line 46, characters 2-100
-Called from Coqc.coqc_run in file "toplevel/coqc.ml", line 68, characters 4-36
-
-
-make[1]: *** [Makefile.build:874: theories/Sorting/Sorted.vo] Error 1
+COQC      theories/Lists/SetoidList.v
+COQC      theories/Structures/DecidableType.v
+COQC      theories/Structures/OrderedType.v
+COQC      theories/FSets/FMapInterface.v
+COQC      theories/FSets/FMapList.v
 COQC      theories/Numbers/BinNums.v
 COQC      theories/Logic/EqdepFacts.v
 COQC      theories/Logic/Eqdep_dec.v
@@ -664,43 +680,19 @@ COQC      theories/Vectors/VectorEq.v
 COQC      theories/Vectors/Vector.v
 COQC      theories/Bool/Bvector.v
 COQC      theories/Strings/Byte.v
-File "./theories/Strings/Byte.v", line 590, characters 2-6:
-Error:
- (in proof to_of_nat): Attempt to save an incomplete proof
-Raised at Proof.return in file "proofs/proof.ml", line 337, characters 4-43
-Called from Declare.Proof.prepare_proof in file "vernac/declare.ml", line 1533, characters 12-35
-Called from Declare.Proof.close_proof in file "vernac/declare.ml", line 1605, characters 20-48
-Called from Stm.Reach.known_state.reach.aux.(fun) in file "stm/stm.ml", line 2253, characters 29-91
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Stm.Reach.known_state.reach.aux.(fun) in file "stm/stm.ml", line 2256, characters 22-70
-Called from Stm.State.define in file "stm/stm.ml", line 957, characters 6-10
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Stm.Reach.known_state.reach in file "stm/stm.ml", line 2296, characters 4-105
-Called from Stm.observe in file "stm/stm.ml", line 2397, characters 4-60
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Vernac.interp_vernac in file "toplevel/vernac.ml", line 68, characters 31-52
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Flags.with_modified_ref in file "lib/flags.ml", line 17, characters 14-17
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Flags.silently in file "lib/flags.ml" (inlined), line 66, characters 19-40
-Called from Vernac.load_vernac_core.loop in file "toplevel/vernac.ml", line 111, characters 8-69
-Called from Vernac.load_vernac_core in file "toplevel/vernac.ml", line 115, characters 6-19
-Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
-Called from Vernac.load_vernac in file "toplevel/vernac.ml", line 171, characters 30-88
-Called from Ccompile.compile in file "toplevel/ccompile.ml", line 143, characters 18-89
-Called from Ccompile.compile in file "toplevel/ccompile.ml" (inlined), line 208, characters 2-59
-Called from Ccompile.compile_file in file "toplevel/ccompile.ml", line 217, characters 4-61
-Called from Coqc.coqc_main in file "toplevel/coqc.ml", line 46, characters 2-100
-Called from Coqc.coqc_run in file "toplevel/coqc.ml", line 68, characters 4-36
-
-
-make[1]: *** [Makefile.build:874: theories/Strings/Byte.vo] Error 1
+COQC      theories/Strings/Ascii.v
+COQC      theories/Strings/String.v
+COQC      theories/Strings/ByteVector.v
+COQC      theories/NArith/Ndigits.v
 COQC      theories/setoid_ring/NArithRing.v
+COQC      theories/NArith/NArith.v
 COQC      theories/micromega/Env.v
 COQC      theories/micromega/EnvRing.v
 COQC      theories/micromega/Refl.v
 COQC      theories/micromega/Tauto.v
+COQC      theories/micromega/RingMicromega.v
 COQC      theories/setoid_ring/ZArithRing.v
+COQC      theories/micromega/ZCoeff.v
 COQC      theories/micromega/Ztac.v
 COQC      theories/ZArith/Zcomplements.v
 COQC      theories/ZArith/Zdiv.v
@@ -714,6 +706,7 @@ COQC      theories/QArith/Qring.v
 COQC      theories/QArith/Qreduction.v
 COQC      theories/QArith/QArith.v
 COQC      theories/micromega/VarMap.v
+COQC      theories/micromega/ZMicromega.v
 COQC      theories/micromega/DeclConstant.v
 OCAMLOPT  plugins/micromega/coq_micromega.ml
 OCAMLOPT  plugins/micromega/g_micromega.ml
@@ -721,139 +714,41 @@ File "plugins/micromega/g_micromega.mlg", line 88, characters 70-73:
 Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
 OCAMLOPT -pack -o plugins/micromega/micromega_plugin.cmx
 OCAMLOPT -shared -o plugins/micromega/micromega_plugin.cmxs
+COQC      theories/micromega/Lia.v
+COQC      theories/micromega/ZArith_hints.v
 OCAMLOPT  plugins/omega/coq_omega.ml
 OCAMLOPT  plugins/omega/g_omega.ml
 OCAMLOPT -pack -o plugins/omega/omega_plugin.cmx
 OCAMLOPT -shared -o plugins/omega/omega_plugin.cmxs
+COQC      theories/omega/Omega.v
 COQC      theories/ZArith/Zpower.v
+COQC      theories/ZArith/ZArith.v
 COQC      theories/ZArith/Int.v
-COQC      theories/funind/Recdef.v
-COQC      theories/Bool/Zerob.v
-COQC      theories/Sets/Ensembles.v
-COQC      theories/Sets/Constructive_sets.v
-COQC      theories/Sets/Finite_sets.v
-COQC      theories/Lists/ListDec.v
-COQC      theories/Lists/ListSet.v
-COQC      theories/Logic/FinFun.v
-COQC      theories/Sorting/Permutation.v
-COQC      theories/Lists/Streams.v
-COQC      theories/Lists/StreamMemo.v
-COQC      theories/PArith/POrderedType.v
-COQC      theories/PArith/PArith.v
-OCAMLOPT  plugins/btauto/refl_btauto.ml
-OCAMLOPT  plugins/btauto/g_btauto.ml
-OCAMLOPT -pack -o plugins/btauto/btauto_plugin.cmx
-OCAMLOPT -shared -o plugins/btauto/btauto_plugin.cmxs
-COQC      theories/Bool/BoolOrder.v
-COQC      theories/Bool/BoolEq.v
-COQC      theories/Bool/IfProp.v
-COQC      theories/Bool/DecBool.v
-COQC      theories/Arith/Bool_nat.v
-COQC      theories/Arith/Euclid.v
-COQC      theories/Arith/Even.v
-COQC      theories/Arith/Div2.v
-COQC      theories/Arith/Compare.v
-COQC      theories/Numbers/Natural/Binary/NBinary.v
-COQC      theories/Numbers/Natural/Peano/NPeano.v
-COQC      theories/Numbers/Natural/Abstract/NStrongRec.v
-COQC      theories/Numbers/Natural/Abstract/NIso.v
-COQC      theories/Numbers/NaryFunctions.v
-COQC      theories/Numbers/Cyclic/Abstract/CarryType.v
-COQC      theories/Numbers/Cyclic/Abstract/DoubleType.v
-COQC      theories/Unicode/Utf8_core.v
-COQC      theories/Unicode/Utf8.v
-COQC      theories/Numbers/Cyclic/Int63/PrimInt63.v
-COQC      theories/QArith/Qabs.v
-COQC      theories/QArith/Qround.v
-COQC      theories/Logic/ConstructiveEpsilon.v
-COQC      theories/Reals/Abstract/ConstructiveReals.v
-COQC      theories/QArith/QOrderedType.v
-COQC      theories/QArith/Qminmax.v
-COQC      theories/Logic/FunctionalExtensionality.v
-COQC      theories/Logic/HLevels.v
-COQC      theories/Numbers/Integer/Binary/ZBinary.v
-COQC      theories/Numbers/Integer/Abstract/ZDivEucl.v
-COQC      theories/Numbers/Integer/NatPairs/ZNatPairs.v
-COQC      theories/Numbers/NatInt/NZDomain.v
-COQC      theories/Numbers/AltBinNotations.v
-COQC      theories/Sets/Relations_1_facts.v
-COQC      theories/Sets/Partial_Order.v
-COQC      theories/Sets/Cpo.v
-COQC      theories/Sets/Powerset.v
-COQC      theories/Sets/Powerset_facts.v
-COQC      theories/Sets/Permut.v
-COQC      theories/Sets/Multiset.v
-COQC      theories/Logic/PropExtensionalityFacts.v
-COQC      theories/Logic/Hurkens.v
-COQC      theories/Logic/ClassicalFacts.v
-COQC      theories/Logic/Classical_Prop.v
-COQC      theories/Logic/Classical_Pred_Type.v
-COQC      theories/Logic/Classical.v
-COQC      theories/Sets/Classical_sets.v
-COQC      theories/Sets/Powerset_Classical_facts.v
-COQC      theories/Sets/Finite_sets_facts.v
-COQC      theories/Sets/Image.v
-COQC      theories/Sets/Relations_2.v
-COQC      theories/Sets/Relations_3.v
-COQC      theories/Sets/Relations_2_facts.v
-COQC      theories/Sets/Relations_3_facts.v
-COQC      theories/Sets/Infinite_sets.v
-COQC      theories/Sets/Integers.v
-COQC      theories/Sets/Uniset.v
-COQC      theories/setoid_ring/Algebra_syntax.v
-COQC      theories/setoid_ring/Ncring.v
-COQC      theories/setoid_ring/Ncring_polynom.v
-COQC      theories/setoid_ring/Ncring_initial.v
-COQC      theories/Reals/Abstract/ConstructiveAbs.v
-COQC      theories/Reals/Abstract/ConstructiveLimits.v
-COQC      theories/Reals/Abstract/ConstructiveLUB.v
-OCAMLOPT  plugins/nsatz/nsatz.ml
-OCAMLOPT  plugins/nsatz/g_nsatz.ml
-OCAMLOPT -pack -o plugins/nsatz/nsatz_plugin.cmx
-OCAMLOPT -shared -o plugins/nsatz/nsatz_plugin.cmxs
-COQC      theories/extraction/ExtrHaskellNatNum.v
-COQC      theories/extraction/ExtrHaskellNatInteger.v
-COQC      theories/extraction/ExtrOcamlBasic.v
-COQC      theories/extraction/ExtrOcamlNatInt.v
-COQC      theories/Floats/FloatClass.v
-OCAMLOPT  plugins/syntax/float_syntax.ml
-OCAMLOPT -pack -o plugins/syntax/float_syntax_plugin.cmx
-OCAMLOPT -shared -o plugins/syntax/float_syntax_plugin.cmxs
-COQC      theories/Floats/PrimFloat.v
-COQC      theories/extraction/ExtrHaskellNatInt.v
-COQC      theories/extraction/ExtrOcamlNatBigInt.v
-COQC      theories/extraction/ExtrHaskellBasic.v
-COQC      theories/QArith/Qcanon.v
-COQC      theories/QArith/Qcabs.v
-COQC      theories/micromega/ZifyPow.v
-COQC      theories/ZArith/Zpow_alt.v
-COQC      theories/ZArith/Zeuclid.v
-COQC      theories/omega/OmegaTactic.v
-COQC      theories/omega/OmegaPlugin.v
-COQC      theories/ssr/ssrfun.v
-COQC      theories/ssr/ssrbool.v
-File "./theories/ssr/ssrbool.v", line 472, characters 0-44:
-Error: Anomaly "in retyping: Not a sort."
-Please report at http://coq.inria.fr/bugs/.
+COQC      theories/FSets/FMapAVL.v
+merge = 
+fun (elt : Type) (s1 s2 : t elt) =>
+match s1 with
+| Leaf _ => fun _ : t elt => s2
+| Node _ _ _ _ _ =>
+    fun H : t elt =>
+    match H with
+    | Leaf _ => s1
+    | Node l2 x4 d2 r2 _ =>
+        let (s2', H0) := remove_min l2 x4 d2 r2 in
+        let (x5, d) := H0 in bal s1 x5 d s2'
+    end
+end s2
+     : forall elt : Type, t elt -> t elt -> t elt
+
+Arguments merge [elt]%type_scope _ _
+File "./theories/FSets/FMapAVL.v", line 491, characters 0-61:
+Error:
+Cannot define graph(s) for merge
 Raised at Exninfo.iraise in file "clib/exninfo.ml", line 80, characters 4-11
-Called from Cases.ETerm.get_sort_of in file "pretyping/cases.ml" (inlined), line 1609, characters 4-66
-Called from Cases.Make.invert_return_pred.make_return_pred in file "pretyping/cases.ml", line 4986, characters 8-47
-Called from Cases.Monad.StateT.Self.Ops.let* in file "pretyping/cases.ml", line 287, characters 24-27
-Called from Cases.Monad.StateT.Self.Ops.let* in file "pretyping/cases.ml", line 287, characters 24-27
-Called from Cases.Monad.StateT.Self.Ops.let* in file "pretyping/cases.ml", line 287, characters 24-27
-Called from Cases.Monad.StateT.Self.Ops.let* in file "pretyping/cases.ml", line 287, characters 24-27
-Called from Cases.Monad.StateT.Self.Ops.let* in file "pretyping/cases.ml", line 287, characters 24-27
-Called from Cases.Monad.StateT.Self.Ops.let* in file "pretyping/cases.ml", line 287, characters 24-27
-Called from Cases.Monad.StateT.Self.Ops.let* in file "pretyping/cases.ml", line 287, characters 24-27
-Called from Cases.compile_cases in file "pretyping/cases.ml", line 6034, characters 8-44
-Called from Pretyping.pretype in file "pretyping/pretyping.ml" (inlined), line 1328, characters 2-81
-Called from Pretyping.ise_pretype_gen in file "pretyping/pretyping.ml", line 1346, characters 21-79
-Called from Pretyping.understand_tcc in file "pretyping/pretyping.ml", line 1394, characters 20-71
-Called from Constrintern.interp_constr_evars_gen_impls in file "interp/constrintern.ml", line 2500, characters 17-65
-Called from ComDefinition.interp_definition in file "vernac/comDefinition.ml", line 99, characters 31-90
-Called from ComDefinition.do_definition in file "vernac/comDefinition.ml", line 125, characters 4-93
-Called from Vernacentries.vernac_definition in file "vernac/vernacentries.ml", line 699, characters 6-155
-Called from Vernacinterp.interp_typed_vernac in file "vernac/vernacinterp.ml", line 53, characters 13-18
+Called from Gen_principle.do_generate_principle_aux in file "plugins/funind/gen_principle.ml", line 1851, characters 6-202
+Called from Gen_principle.make_graph in file "plugins/funind/gen_principle.ml", line 2135, characters 6-100
+Called from G_indfun.coqpp_body.(fun) in file "plugins/funind/g_indfun.mlg", line 266, characters 16-81
+Called from Vernacinterp.interp_typed_vernac in file "vernac/vernacinterp.ml", line 28, characters 19-23
 Called from Vernacinterp.interp_control.(fun) in file "vernac/vernacinterp.ml", line 215, characters 24-69
 Called from Flags.with_modified_ref in file "lib/flags.ml", line 17, characters 14-17
 Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
@@ -878,124 +773,87 @@ Called from Vernac.load_vernac in file "toplevel/vernac.ml", line 171, character
 Called from Ccompile.compile in file "toplevel/ccompile.ml", line 143, characters 18-89
 Called from Ccompile.compile in file "toplevel/ccompile.ml" (inlined), line 208, characters 2-59
 Called from Ccompile.compile_file in file "toplevel/ccompile.ml", line 217, characters 4-61
-Called from Coqc.coqc_main in file "toplevel/coqc.ml", line 46, characters 2-100
-Called from Coqc.coqc_run in file "toplevel/coqc.ml", line 68, characters 4-36
+Called from Coqc.coqc_main in file "toplevel/coqc.ml", line 48, characters 2-100
+Called from Coqc.coqc_run in file "toplevel/coqc.ml", line 70, characters 4-36
 
 
-make[1]: *** [Makefile.build:874: theories/ssr/ssrbool.vo] Error 129
-COQC      theories/Wellfounded/Transitive_Closure.v
-COQC      theories/Wellfounded/Lexicographic_Exponentiation.v
-COQC      theories/Wellfounded/Union.v
-COQC      theories/Wellfounded/Inverse_Image.v
-COQC      theories/Wellfounded/Disjoint_Union.v
-COQC      theories/Wellfounded/Inclusion.v
-COQC      theories/Logic/Eqdep.v
-COQC      theories/Wellfounded/Lexicographic_Product.v
-COQC      theories/Wellfounded/Well_Ordering.v
-COQC      theories/Wellfounded/Wellfounded.v
-OCAMLOPT  plugins/derive/derive.ml
-OCAMLOPT  plugins/derive/g_derive.ml
-File "plugins/derive/g_derive.mlg", line 29, characters 25-28:
-Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
-OCAMLOPT -pack -o plugins/derive/derive_plugin.cmx
-OCAMLOPT -shared -o plugins/derive/derive_plugin.cmxs
-COQC      theories/derive/Derive.v
-COQC      theories/Reals/Abstract/ConstructiveRealsMorphisms.v
-COQC      theories/Reals/Abstract/ConstructiveMinMax.v
-COQC      theories/Reals/Abstract/ConstructiveSum.v
-COQC      theories/Reals/Abstract/ConstructivePower.v
-COQC      theories/Logic/ProofIrrelevanceFacts.v
-COQC      theories/Logic/ClassicalUniqueChoice.v
-COQC      theories/Logic/RelationalChoice.v
-COQC      theories/Logic/ChoiceFacts.v
-COQC      theories/Logic/ClassicalChoice.v
-COQC      theories/Logic/ExtensionalFunctionRepresentative.v
-COQC      theories/Logic/SetoidChoice.v
-COQC      theories/Logic/WeakFan.v
-COQC      theories/Logic/WKL.v
-COQC      theories/Logic/PropExtensionality.v
-COQC      theories/Logic/IndefiniteDescription.v
-COQC      theories/Logic/Berardi.v
-COQC      theories/Logic/JMeq.v
-COQC      theories/Logic/Description.v
-COQC      theories/Logic/Diaconescu.v
-COQC      theories/Logic/PropFacts.v
-COQC      theories/Logic/ClassicalEpsilon.v
-COQC      theories/Logic/StrictProp.v
-COQC      theories/Logic/ClassicalDescription.v
-COQC      theories/Logic/ProofIrrelevance.v
-COQC      theories/Logic/Epsilon.v
-COQC      theories/Logic/ExtensionalityFacts.v
-COQC      theories/Logic/SetIsType.v
-COQC      theories/Program/Equality.v
-COQC      theories/Program/Utils.v
-COQC      theories/Program/Wf.v
-COQC      theories/Program/Subset.v
-COQC      theories/Program/Combinators.v
-COQC      theories/Program/Syntax.v
-COQC      theories/Program/Program.v
-COQC      theories/Compat/Coq814.v
-COQC      theories/Compat/Coq813.v
-COQC      theories/Compat/Coq812.v
-COQC      theories/Compat/Coq811.v
-COQC      theories/Compat/AdmitAxiom.v
-COQC      theories/Classes/Morphisms_Relations.v
-COQC      theories/Classes/SetoidClass.v
-COQC      theories/Classes/SetoidDec.v
-COQC      theories/Classes/EquivDec.v
-COQC      theories/Classes/CEquivalence.v
-COQC      theories/rtauto/Bintree.v
-OCAMLOPT  plugins/rtauto/refl_tauto.ml
-OCAMLOPT  plugins/rtauto/g_rtauto.ml
-OCAMLOPT -pack -o plugins/rtauto/rtauto_plugin.cmx
-OCAMLOPT -shared -o plugins/rtauto/rtauto_plugin.cmxs
-COQC      theories/rtauto/Rtauto.v
-COQC      theories/Sorting/CPermutation.v
-OCAMLOPT  user-contrib/Ltac2/tac2print.ml
-OCAMLOPT  user-contrib/Ltac2/tac2intern.ml
-OCAMLOPT  user-contrib/Ltac2/tac2entries.ml
-OCAMLOPT  user-contrib/Ltac2/tac2core.ml
-OCAMLOPT  user-contrib/Ltac2/tac2tactics.ml
-OCAMLOPT  user-contrib/Ltac2/tac2stdlib.ml
-OCAMLOPT  user-contrib/Ltac2/g_ltac2.ml
-File "user-contrib/Ltac2/g_ltac2.mlg", line 912, characters 60-63:
-Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
-File "user-contrib/Ltac2/g_ltac2.mlg", line 915, characters 60-63:
-Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
-File "user-contrib/Ltac2/g_ltac2.mlg", line 932, characters 60-63:
-Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
-File "user-contrib/Ltac2/g_ltac2.mlg", line 947, characters 61-64:
-Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
-OCAMLOPT -pack -o user-contrib/Ltac2/ltac2_plugin.cmx
-OCAMLOPT -shared -o user-contrib/Ltac2/ltac2_plugin.cmxs
-COQC      user-contrib/Ltac2/Init.v
-COQC      user-contrib/Ltac2/Int.v
-COQC      user-contrib/Ltac2/Message.v
-COQC      user-contrib/Ltac2/Control.v
-COQC      user-contrib/Ltac2/Bool.v
-COQC      user-contrib/Ltac2/List.v
-COQC      user-contrib/Ltac2/Pattern.v
-COQC      user-contrib/Ltac2/Char.v
-COQC      user-contrib/Ltac2/String.v
-COQC      user-contrib/Ltac2/Ident.v
-COQC      user-contrib/Ltac2/Array.v
-COQC      user-contrib/Ltac2/Constr.v
-COQC      user-contrib/Ltac2/Fresh.v
-COQC      user-contrib/Ltac2/Std.v
-COQC      user-contrib/Ltac2/Env.v
-COQC      user-contrib/Ltac2/Ltac1.v
-COQC      user-contrib/Ltac2/Notations.v
-COQC      user-contrib/Ltac2/Ltac2.v
-COQC      user-contrib/Ltac2/Option.v
-COQMKTOP -o bin/coqtop.opt
-COQMKTOP -o bin/coqproofworker.opt
-COQMKTOP -o bin/coqtacticworker.opt
-COQMKTOP -o bin/coqqueryworker.opt
-rm -f bin/coqtop && cp bin/coqtop.opt bin/coqtop
-COQMKTOP -o bin/coqidetop.opt
-rm -f bin/coqidetop && cp bin/coqidetop.opt bin/coqidetop
-CHECK revision
-make[1]: Target 'world' not remade because of errors.
-make[1]: Leaving directory '/home/tmartine/pir2/coq'
-make: *** [Makefile.make:178: submake] Error 2
-make: Target 'NOARG' not remade because of errors.
+make[1]: *** [Makefile.build:874: theories/FSets/FMapAVL.vo] Error 1
+COQC      theories/funind/Recdef.v
+COQC      theories/NArith/Ndec.v
+COQC      theories/Structures/OrderedTypeEx.v
+COQC      theories/Structures/OrderedTypeAlt.v
+COQC      theories/Structures/DecidableTypeEx.v
+COQC      theories/FSets/FMapPositive.v
+COQC      theories/FSets/FMapFacts.v
+COQC      theories/FSets/FMapWeakList.v
+COQC      theories/FSets/FMaps.v
+COQC      theories/FSets/FSetInterface.v
+COQC      theories/FSets/FSetFacts.v
+COQC      theories/FSets/FSetDecide.v
+COQC      theories/FSets/FSetProperties.v
+COQC      theories/FSets/FSetBridge.v
+COQC      theories/Classes/RelationPairs.v
+COQC      theories/MSets/MSetInterface.v
+COQC      theories/MSets/MSetFacts.v
+COQC      theories/FSets/FSetCompat.v
+COQC      theories/MSets/MSetGenTree.v
+COQC      theories/MSets/MSetAVL.v
+COQC      theories/Structures/OrdersAlt.v
+COQC      theories/FSets/FSetAVL.v
+COQC      theories/Bool/Zerob.v
+COQC      theories/FSets/FSetEqProperties.v
+COQC      theories/Structures/EqualitiesFacts.v
+COQC      theories/Structures/OrdersLists.v
+COQC      theories/MSets/MSetList.v
+COQC      theories/FSets/FSetList.v
+COQC      theories/FSets/FSetPositive.v
+COQC      theories/MSets/MSetWeakList.v
+COQC      theories/FSets/FSetWeakList.v
+COQC      theories/FSets/FSets.v
+COQC      theories/Sets/Ensembles.v
+COQC      theories/Sets/Constructive_sets.v
+COQC      theories/Sets/Finite_sets.v
+COQC      theories/FSets/FSetToFiniteSet.v
+COQC      theories/Lists/ListDec.v
+COQC      theories/Lists/ListSet.v
+COQC      theories/Logic/FinFun.v
+COQC      theories/Sorting/Permutation.v
+COQC      theories/Lists/SetoidPermutation.v
+COQC      theories/Lists/Streams.v
+COQC      theories/Lists/StreamMemo.v
+COQC      theories/Classes/DecidableClass.v
+COQC      theories/PArith/POrderedType.v
+COQC      theories/PArith/PArith.v
+COQC      theories/btauto/Algebra.v
+COQC      theories/btauto/Reflect.v
+OCAMLOPT  plugins/btauto/refl_btauto.ml
+OCAMLOPT  plugins/btauto/g_btauto.ml
+OCAMLOPT -pack -o plugins/btauto/btauto_plugin.cmx
+OCAMLOPT -shared -o plugins/btauto/btauto_plugin.cmxs
+COQC      theories/btauto/Btauto.v
+COQC      theories/Bool/BoolOrder.v
+COQC      theories/Bool/BoolEq.v
+COQC      theories/Bool/IfProp.v
+COQC      theories/Bool/DecBool.v
+COQC      theories/Arith/Bool_nat.v
+COQC      theories/Arith/Euclid.v
+COQC      theories/Arith/Even.v
+COQC      theories/Arith/Div2.v
+COQC      theories/Arith/Compare.v
+COQC      theories/Numbers/Natural/Binary/NBinary.v
+COQC      theories/Numbers/Natural/Peano/NPeano.v
+COQC      theories/Numbers/Natural/Abstract/NStrongRec.v
+COQC      theories/Numbers/Natural/Abstract/NDefOps.v
+COQC      theories/Numbers/Natural/Abstract/NIso.v
+COQC      theories/Numbers/DecimalFacts.v
+COQC      theories/Numbers/DecimalPos.v
+COQC      theories/Numbers/DecimalN.v
+COQC      theories/Numbers/DecimalZ.v
+COQC      theories/Numbers/DecimalString.v
+COQC      theories/Numbers/NaryFunctions.v
+COQC      theories/Numbers/Cyclic/Abstract/CarryType.v
+COQC      theories/Numbers/Cyclic/Abstract/DoubleType.v
+COQC      theories/Numbers/Cyclic/Int31/Int31.v
+make[1]: *** [theories/Numbers/Cyclic/Int31/Int31.vo] Deleting file 'theories/Numbers/Cyclic/Int31/Int31.glob'
+make[1]: *** [Makefile.build:874: theories/Numbers/Cyclic/Int31/Int31.vo] Interrupt
+make: *** [Makefile.make:178: submake] Interrupt

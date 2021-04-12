@@ -1,0 +1,2556 @@
+rm -f  
+cp -a "ide/.merlin.in" "ide/.merlin"
+cp -a ".merlin.in" ".merlin"
+cp -a "plugins/.merlin.in" "plugins/.merlin"
+cp -a "kernel/.merlin.in" "kernel/.merlin"
+cp -a "test-suite/unit-tests/.merlin.in" "test-suite/unit-tests/.merlin"
+cp -a "META.coq-core.in" "META.coq-core"
+make --warn-undefined-variable --no-builtin-rules -f Makefile.build 
+make[1]: Entering directory '/home/tmartine/pir2/coq'
+OCAMLC    clib/segmenttree.mli
+OCAMLC    clib/unicode.mli
+OCAMLC    tools/coqdep_lexer.mli
+OCAMLLEX  tools/coqdep_lexer.mll
+217 states, 2223 transitions, table size 10194 bytes
+OCAMLC    tools/coqdep_common.mli
+OCAMLC    kernel/genOpcodeFiles.ml
+OCAMLLEX  tools/ocamllibdep.mll
+OCAMLC    coqpp/coqpp_ast.mli
+14 states, 417 transitions, table size 1752 bytes
+OCAMLYACC  coqpp/coqpp_parse.mly
+OCAMLLEX  coqpp/coqpp_lex.mll
+mkdir -p gramlib/.pack
+OCAMLLEX  tools/coqwc.mll
+OCAMLLEX  tools/coqdoc/cpretty.mll
+244 states, 858 transitions, table size 4896 bytes
+OCAMLLEX  ide/coqide/config_lexer.mll
+240 states, 15992 transitions, table size 65408 bytes
+30 states, 1657 transitions, table size 6808 bytes
+6052 additional bytes used for bindings
+OCAMLLEX  ide/coqide/utf8_convert.mll
+OCAMLLEX  ide/coqide/coq_lex.mll
+15 states, 827 transitions, table size 3398 bytes
+OCAMLLEX  ide/coqide/protocol/xml_lexer.mll
+80 states, 774 transitions, table size 3576 bytes
+124 states, 1808 transitions, table size 7976 bytes
+printf '# 1 "%s"\n' gramlib/ploc.ml > gramlib/.pack/gramlib__Ploc.ml
+printf '# 1 "%s"\n' gramlib/plexing.ml > gramlib/.pack/gramlib__Plexing.ml
+cat gramlib/ploc.ml >> gramlib/.pack/gramlib__Ploc.ml
+cat gramlib/plexing.ml >> gramlib/.pack/gramlib__Plexing.ml
+printf '# 1 "%s"\n' gramlib/gramext.ml > gramlib/.pack/gramlib__Gramext.ml
+printf '# 1 "%s"\n' gramlib/grammar.ml > gramlib/.pack/gramlib__Grammar.ml
+cat gramlib/gramext.ml >> gramlib/.pack/gramlib__Gramext.ml
+cat gramlib/grammar.ml >> gramlib/.pack/gramlib__Grammar.ml
+echo " \
+module Ploc    = Gramlib__Ploc \
+module Plexing = Gramlib__Plexing \
+module Gramext = Gramlib__Gramext \
+module Grammar = Gramlib__Grammar" > gramlib/.pack/gramlib.ml
+rm -f ide/coqide/coqide_os_specific.ml && cp ide/coqide/coqide_X11.ml.in ide/coqide/coqide_os_specific.ml && chmod a-w ide/coqide/coqide_os_specific.ml
+rm -f kernel/uint63.ml && cp kernel/uint63_63.ml kernel/uint63.ml && chmod a-w kernel/uint63.ml
+rm -f kernel/float64.ml && cp kernel/float64_63.ml kernel/float64.ml && chmod a-w kernel/float64.ml
+printf '# 1 "%s"\n' gramlib/ploc.mli > gramlib/.pack/gramlib__Ploc.mli
+cat gramlib/ploc.mli >> gramlib/.pack/gramlib__Ploc.mli
+printf '# 1 "%s"\n' gramlib/plexing.mli > gramlib/.pack/gramlib__Plexing.mli
+cat gramlib/plexing.mli >> gramlib/.pack/gramlib__Plexing.mli
+printf '# 1 "%s"\n' gramlib/gramext.mli > gramlib/.pack/gramlib__Gramext.mli
+cat gramlib/gramext.mli >> gramlib/.pack/gramlib__Gramext.mli
+printf '# 1 "%s"\n' gramlib/grammar.mli > gramlib/.pack/gramlib__Grammar.mli
+cat gramlib/grammar.mli >> gramlib/.pack/gramlib__Grammar.mli
+OCAMLDEP  checker/MLFILES checker/MLIFILES
+OCAMLOPT  clib/segmenttree.ml
+OCAMLC    clib/segmenttree.ml
+OCAMLC    tools/coqdep_boot.ml
+WRITE kernel/byterun/coq_instruct.h
+WRITE kernel/byterun/coq_jumptbl.h
+WRITE kernel/byterun/coq_arity.h
+OCAMLC    tools/ocamllibdep.ml
+OCAMLC    coqpp/coqpp_parse.mli
+WRITE kernel/vmopcodes.ml
+OCAMLC    clib/unicodetable.ml
+CCDEP     kernel/byterun/coq_float64.c
+CCDEP     kernel/byterun/coq_memory.c
+2719 states, 8742 transitions, table size 51282 bytes
+17643 additional bytes used for bindings
+CCDEP     kernel/byterun/coq_values.c
+CCDEP     kernel/byterun/coq_fix_code.c
+CCDEP     kernel/byterun/coq_interp.c
+OCAMLOPT  tools/ocamllibdep.ml
+OCAMLC    coqpp/coqpp_parse.ml
+OCAMLBEST -o bin/ocamllibdep
+OCAMLC    coqpp/coqpp_lex.ml
+OCAMLOPT  clib/unicodetable.ml
+OCAMLC    clib/unicode.ml
+OCAMLC -a bin/coqpp
+OCAMLC    clib/minisys.ml
+OCAMLLIBDEP  checker/MLLIBFILES checker/MLPACKFILES
+COQPP   user-contrib/Ltac2/g_ltac2.mlg
+COQPP   parsing/g_constr.mlg
+COQPP   parsing/g_prim.mlg
+COQPP   toplevel/g_toplevel.mlg
+COQPP   plugins/ssrsearch/g_search.mlg
+COQPP   plugins/btauto/g_btauto.mlg
+COQPP   plugins/ltac/extratactics.mlg
+COQPP   plugins/ltac/coretactics.mlg
+COQPP   plugins/ltac/g_class.mlg
+COQPP   plugins/ltac/extraargs.mlg
+COQPP   plugins/ltac/g_eqdecide.mlg
+COQPP   plugins/ltac/g_obligations.mlg
+COQPP   plugins/ltac/profile_ltac_tactics.mlg
+COQPP   plugins/ltac/g_auto.mlg
+COQPP   plugins/ltac/g_ltac.mlg
+COQPP   plugins/ltac/g_tactic.mlg
+COQPP   plugins/ltac/g_rewrite.mlg
+COQPP   plugins/firstorder/g_ground.mlg
+COQPP   plugins/nsatz/g_nsatz.mlg
+COQPP   plugins/extraction/g_extraction.mlg
+COQPP   plugins/micromega/g_zify.mlg
+COQPP   plugins/micromega/g_micromega.mlg
+COQPP   plugins/syntax/g_number_string.mlg
+COQPP   plugins/omega/g_omega.mlg
+COQPP   plugins/ssr/ssrvernac.mlg
+COQPP   plugins/ssr/ssrparser.mlg
+COQPP   plugins/derive/g_derive.mlg
+COQPP   plugins/ssrmatching/g_ssrmatching.mlg
+COQPP   plugins/ring/g_ring.mlg
+COQPP   plugins/rtauto/g_rtauto.mlg
+COQPP   plugins/funind/g_indfun.mlg
+COQPP   plugins/cc/g_congruence.mlg
+COQPP   vernac/g_vernac.mlg
+COQPP   vernac/g_proofs.mlg
+OCAMLDEP  user-contrib/MLFILES user-contrib/MLIFILES
+OCAMLLIBDEP  plugins/MLLIBFILES plugins/MLPACKFILES
+OCAMLDEP  plugins/MLFILES plugins/MLIFILES
+OCAMLLIBDEP  MLLIBFILES MLPACKFILES
+OCAMLDEP  MLFILES MLIFILES
+OCAMLOPT  clib/unicode.ml
+OCAMLOPT  clib/minisys.ml
+OCAMLOPT  tools/coqdep_lexer.ml
+OCAMLOPT  tools/coqdep_common.ml
+OCAMLOPT  tools/coqdep_boot.ml
+OCAMLBEST -o bin/coqdep_boot
+COQDEP    VFILES
+OCAMLC    gramlib/.pack/gramlib.ml
+OCAMLOPT  gramlib/.pack/gramlib.ml
+OCAMLC    clib/segmenttree.mli
+OCAMLC    clib/unicode.mli
+OCAMLC    tools/coqdep_lexer.mli
+OCAMLC    tools/coqdep_common.mli
+OCAMLC    tools/ocamllibdep.ml
+OCAMLC    coqpp/coqpp_ast.mli
+OCAMLOPT  clib/segmenttree.ml
+OCAMLC    clib/segmenttree.ml
+OCAMLC    tools/coqdep_boot.ml
+OCAMLC    coqpp/coqpp_parse.mli
+OCAMLC    clib/unicodetable.ml
+OCAMLOPT  tools/ocamllibdep.ml
+OCAMLC    coqpp/coqpp_parse.ml
+OCAMLC    coqpp/coqpp_lex.ml
+OCAMLBEST -o bin/ocamllibdep
+OCAMLC -a bin/coqpp
+COQPP   parsing/g_constr.mlg
+COQPP   parsing/g_prim.mlg
+COQPP   toplevel/g_toplevel.mlg
+COQPP   plugins/ssrsearch/g_search.mlg
+COQPP   plugins/btauto/g_btauto.mlg
+COQPP   plugins/ltac/extratactics.mlg
+COQPP   plugins/ltac/coretactics.mlg
+COQPP   plugins/ltac/g_class.mlg
+COQPP   plugins/ltac/extraargs.mlg
+COQPP   plugins/ltac/g_eqdecide.mlg
+COQPP   plugins/ltac/g_obligations.mlg
+COQPP   plugins/ltac/profile_ltac_tactics.mlg
+COQPP   plugins/ltac/g_auto.mlg
+COQPP   plugins/ltac/g_ltac.mlg
+COQPP   plugins/ltac/g_tactic.mlg
+COQPP   plugins/ltac/g_rewrite.mlg
+COQPP   plugins/firstorder/g_ground.mlg
+COQPP   plugins/nsatz/g_nsatz.mlg
+COQPP   plugins/extraction/g_extraction.mlg
+COQPP   plugins/micromega/g_zify.mlg
+COQPP   plugins/micromega/g_micromega.mlg
+COQPP   plugins/syntax/g_number_string.mlg
+COQPP   plugins/omega/g_omega.mlg
+COQPP   plugins/ssr/ssrvernac.mlg
+COQPP   plugins/ssr/ssrparser.mlg
+COQPP   plugins/derive/g_derive.mlg
+COQPP   plugins/ssrmatching/g_ssrmatching.mlg
+COQPP   plugins/ring/g_ring.mlg
+COQPP   plugins/rtauto/g_rtauto.mlg
+COQPP   plugins/funind/g_indfun.mlg
+COQPP   plugins/cc/g_congruence.mlg
+COQPP   vernac/g_vernac.mlg
+COQPP   vernac/g_proofs.mlg
+COQPP   user-contrib/Ltac2/g_ltac2.mlg
+OCAMLDEP  user-contrib/MLFILES user-contrib/MLIFILES
+OCAMLDEP  plugins/MLFILES plugins/MLIFILES
+OCAMLDEP  MLFILES MLIFILES
+OCAMLOPT  clib/unicodetable.ml
+OCAMLC    clib/unicode.ml
+OCAMLC    clib/minisys.ml
+OCAMLOPT  clib/unicode.ml
+OCAMLOPT  clib/minisys.ml
+OCAMLOPT  tools/coqdep_lexer.ml
+OCAMLOPT  tools/coqdep_common.ml
+OCAMLOPT  tools/coqdep_boot.ml
+OCAMLBEST -o bin/coqdep_boot
+OCAMLC    config/coq_config.mli
+OCAMLC    clib/cObj.mli
+OCAMLC    clib/cEphemeron.mli
+OCAMLC    clib/cSig.mli
+OCAMLC    clib/hashset.mli
+OCAMLC    clib/orderedType.mli
+OCAMLC    clib/range.mli
+OCAMLC    clib/cArray.mli
+OCAMLC    clib/option.mli
+OCAMLC    clib/cUnix.mli
+OCAMLC    clib/cThread.mli
+OCAMLC    clib/trie.mli
+OCAMLC    clib/predicate.mli
+OCAMLC    clib/heap.mli
+OCAMLC    clib/unionfind.mli
+OCAMLC    clib/dyn.mli
+OCAMLC    clib/store.mli
+OCAMLC    clib/exninfo.mli
+OCAMLC    clib/iStream.mli
+OCAMLC    clib/terminal.mli
+OCAMLC    clib/monad.mli
+OCAMLC    clib/diff2.mli
+OCAMLC    clib/cPath.mli
+OCAMLC    lib/hook.mli
+OCAMLC    lib/flags.mli
+OCAMLC    lib/control.mli
+OCAMLC    lib/pp.mli
+OCAMLC    lib/loc.mli
+OCAMLC    lib/xml_datatype.mli
+OCAMLC    lib/cProfile.mli
+OCAMLC    lib/spawn.mli
+OCAMLC    lib/genarg.mli
+OCAMLC    lib/remoteCounter.mli
+OCAMLC    lib/aux_file.mli
+OCAMLC    lib/envars.mli
+OCAMLC    lib/coqProject_file.mli
+OCAMLC    kernel/uint63.mli
+OCAMLC    kernel/vmopcodes.ml
+OCAMLC    library/summary.mli
+OCAMLC    engine/logic_monad.mli
+OCAMLC    interp/deprecation.mli
+OCAMLC    interp/numTok.mli
+OCAMLC    gramlib/.pack/gramlib__Ploc.mli
+OCAMLC    gramlib/.pack/gramlib__Gramext.mli
+OCAMLC    tactics/dnet.mli
+OCAMLC    tactics/dn.mli
+OCAMLC    sysinit/usage.mli
+OCAMLC    stm/spawned.mli
+OCAMLC    stm/dag.mli
+OCAMLC    stm/tQueue.mli
+OCAMLC    stm/coqworkmgrApi.mli
+OCAMLC    stm/vio_checking.mli
+OCAMLC    toplevel/workerLoop.mli
+OCAMLC    toplevel/coqc.mli
+OCAMLC    kernel/byterun/coq_fix_code.c
+OCAMLC    kernel/byterun/coq_float64.c
+OCAMLC    kernel/byterun/coq_memory.c
+OCAMLC    kernel/byterun/coq_values.c
+OCAMLC    kernel/byterun/coq_interp.c
+OCAMLC    plugins/ltac/tauto.mli
+OCAMLC    plugins/ssr/ssrvernac.mli
+OCAMLC    plugins/micromega/micromega.mli
+OCAMLC    plugins/micromega/numCompat.mli
+OCAMLC    plugins/micromega/persistent_cache.mli
+OCAMLC    plugins/micromega/g_micromega.mli
+OCAMLC    plugins/nsatz/utile.mli
+OCAMLC    plugins/nsatz/polynom.mli
+OCAMLC    plugins/rtauto/proof_search.mli
+OCAMLC    user-contrib/Ltac2/tac2dyn.mli
+OCAMLC    user-contrib/Ltac2/tac2stdlib.mli
+OCAMLC    checker/analyze.mli
+OCAMLC    checker/values.mli
+OCAMLC    checker/checker.mli
+OCAMLC    plugins/micromega/sos_lib.mli
+OCAMLC    plugins/micromega/csdpcert.mli
+OCAMLC    ide/coqide/protocol/xml_lexer.mli
+OCAMLC    ide/coqide/protocol/xml_parser.mli
+OCAMLC    ide/coqide/protocol/xml_printer.mli
+OCAMLC    ide/coqide/protocol/serialize.mli
+OCAMLC    ide/coqide/protocol/richpp.mli
+OCAMLC    tools/coq_tex.ml
+OCAMLC    tools/coqwc.ml
+OCAMLC    tools/coqdoc/cdglobals.mli
+OCAMLC    tools/coqdoc/alpha.mli
+OCAMLC    tools/coqdoc/index.mli
+OCAMLC    tools/coqdoc/cpretty.mli
+OCAMLC    tools/coqworkmgr.ml
+OCAMLC    checker/votour.mli
+OCAMLC -a bin/doc_grammar
+"/home/tmartine/.opam/4.12/bin/ocamlfind" ocamlc -thread -rectypes -w +a-4-9-27-41-42-44-45-48-58-67   -safe-string -strict-sequence  ide/coqide/default_bindings_src.ml -o ide/coqide/default_bindings_src.exe
+CHECK revision
+OCAMLOPT  config/coq_config.ml
+OCAMLOPT  clib/cObj.ml
+OCAMLOPT  clib/cEphemeron.ml
+OCAMLC    clib/cMap.mli
+OCAMLC    clib/hashcons.mli
+OCAMLC    clib/cList.mli
+OCAMLC    clib/hMap.mli
+OCAMLOPT  clib/option.ml
+OCAMLOPT  clib/cThread.ml
+OCAMLOPT  clib/trie.ml
+OCAMLOPT  clib/predicate.ml
+OCAMLOPT  clib/heap.ml
+OCAMLOPT  clib/unionfind.ml
+OCAMLOPT  clib/iStream.ml
+OCAMLOPT  clib/terminal.ml
+OCAMLOPT  clib/monad.ml
+OCAMLOPT  clib/diff2.ml
+OCAMLOPT  clib/cPath.ml
+OCAMLOPT  lib/hook.ml
+OCAMLC    lib/pp_diff.mli
+OCAMLC    lib/stateid.mli
+OCAMLC    lib/cErrors.mli
+OCAMLC    lib/cWarnings.mli
+OCAMLC    lib/cDebug.mli
+OCAMLC    lib/rtree.mli
+OCAMLC    lib/system.mli
+OCAMLC    lib/explore.mli
+OCAMLC    lib/future.mli
+OCAMLC    lib/cAst.mli
+OCAMLC    kernel/parray.mli
+OCAMLC    kernel/float64_common.mli
+OCAMLC    kernel/float64.mli
+OCAMLC    kernel/evar.mli
+OCAMLOPT  kernel/vmopcodes.ml
+OCAMLOPT  gramlib/.pack/gramlib__Gramext.ml
+OCAMLOPT  tactics/dnet.ml
+OCAMLOPT  sysinit/usage.ml
+OCAMLC    stm/vcs.mli
+OCAMLOPT  stm/coqworkmgrApi.ml
+OCAMLC    stm/workerPool.mli
+OCAMLOPT  plugins/micromega/micromega.ml
+OCAMLC    plugins/micromega/mutils.mli
+OCAMLC    plugins/micromega/itv.mli
+OCAMLC    plugins/micromega/sos_types.mli
+OCAMLC    plugins/nsatz/ideal.mli
+OCAMLOPT  checker/analyze.ml
+OCAMLOPT  checker/values.ml
+OCAMLC    checker/validate.mli
+OCAMLOPT  plugins/micromega/sos_lib.ml
+OCAMLC    plugins/micromega/sos.mli
+OCAMLOPT  ide/coqide/protocol/xml_lexer.ml
+OCAMLOPT  ide/coqide/protocol/xml_printer.ml
+OCAMLC    ide/coqide/document.mli
+OCAMLC    tools/coqdep.ml
+OCAMLOPT  tools/coq_tex.ml
+OCAMLOPT  tools/coqwc.ml
+OCAMLOPT  tools/coqdoc/cdglobals.ml
+OCAMLC    tools/coqdoc/tokens.mli
+OCAMLC    tools/coqdoc/output.mli
+OCAMLOPT  tools/coqworkmgr.ml
+OCAMLOPT  checker/votour.ml
+ide/coqide/default_bindings_src.exe ide/coqide/default.bindings
+OCAMLOPT -a -o config/config.cmxa
+OCAMLOPT  clib/cMap.ml
+OCAMLC    clib/int.mli
+OCAMLC    clib/cSet.mli
+OCAMLC    clib/cString.mli
+OCAMLC    lib/feedback.mli
+OCAMLC    lib/acyclicGraph.mli
+OCAMLC    lib/objFile.mli
+OCAMLC    lib/dAst.mli
+OCAMLC    stm/asyncTaskQueue.mli
+cd kernel/byterun/ && \
+"/home/tmartine/.opam/4.12/bin/ocamlfind" ocamlmklib -oc coqrun coq_fix_code.o coq_float64.o coq_memory.o coq_values.o coq_interp.o
+OCAMLC    plugins/micromega/vect.mli
+OCAMLC    plugins/micromega/certificate.mli
+OCAMLOPT  checker/validate.ml
+OCAMLOPT  ide/coqide/protocol/xml_parser.ml
+OCAMLC    tools/coq_makefile.ml
+OCAMLBEST -o bin/coq-tex
+OCAMLBEST -o bin/coqwc
+OCAMLOPT  tools/coqdoc/alpha.ml
+OCAMLC    tools/coqdoc/main.ml
+OCAMLBEST -o bin/votour
+OCAMLOPT  clib/int.ml
+OCAMLC    lib/util.mli
+OCAMLOPT  kernel/uint63.ml
+OCAMLOPT  stm/dag.ml
+OCAMLC    stm/partac.mli
+OCAMLOPT  plugins/micromega/numCompat.ml
+OCAMLC    plugins/micromega/polynomial.mli
+OCAMLC    plugins/omega/omega.ml
+OCAMLC    ide/coqide/protocol/interface.ml
+OCAMLOPT  tools/coqdoc/index.ml
+OCAMLOPT  clib/hashset.ml
+OCAMLOPT  clib/orderedType.ml
+OCAMLOPT  clib/cList.ml
+OCAMLOPT  clib/range.ml
+OCAMLOPT  clib/hMap.ml
+OCAMLOPT  clib/dyn.ml
+OCAMLC    kernel/names.mli
+OCAMLOPT  kernel/float64_common.ml
+OCAMLC    kernel/esubst.mli
+OCAMLC    gramlib/.pack/gramlib__Plexing.mli
+OCAMLC    parsing/tok.mli
+OCAMLC    tactics/declareScheme.mli
+OCAMLC    vernac/canonical.mli
+OCAMLC    plugins/extraction/miniml.mli
+OCAMLOPT  plugins/micromega/mutils.ml
+OCAMLOPT  plugins/micromega/itv.ml
+OCAMLOPT  plugins/micromega/sos_types.ml
+OCAMLC    plugins/micromega/mfourier.mli
+OCAMLC    plugins/micromega/simplex.mli
+OCAMLOPT  user-contrib/Ltac2/tac2dyn.ml
+OCAMLC    ide/coqide/protocol/xmlprotocol.mli
+OCAMLOPT  tools/coqdoc/tokens.ml
+OCAMLOPT  clib/hashcons.ml
+OCAMLOPT  clib/cArray.ml
+OCAMLOPT  clib/store.ml
+OCAMLC    kernel/transparentState.mli
+OCAMLOPT  kernel/float64.ml
+OCAMLC    kernel/univ.mli
+OCAMLC    kernel/conv_oracle.mli
+OCAMLC    library/libnames.mli
+OCAMLC    engine/evar_kinds.mli
+OCAMLC    pretyping/locus.ml
+OCAMLC    proofs/goal_select.mli
+OCAMLC    gramlib/.pack/gramlib__Grammar.mli
+OCAMLC    parsing/cLexer.mli
+OCAMLC    tactics/declareUctx.mli
+OCAMLC    vernac/loadpath.mli
+OCAMLC    plugins/extraction/modutil.mli
+OCAMLC    plugins/extraction/common.mli
+OCAMLC    plugins/extraction/ocaml.mli
+OCAMLC    plugins/extraction/haskell.mli
+OCAMLC    plugins/extraction/scheme.mli
+OCAMLC    plugins/extraction/json.mli
+OCAMLOPT  plugins/micromega/vect.ml
+OCAMLC    user-contrib/Ltac2/tac2expr.mli
+OCAMLOPT  plugins/micromega/sos.ml
+OCAMLC    ide/coqide/fake_ide.ml
+OCAMLOPT  tools/coqdoc/output.ml
+OCAMLOPT  clib/cSet.ml
+OCAMLOPT  clib/cString.ml
+OCAMLOPT  clib/exninfo.ml
+OCAMLOPT  lib/pp.ml
+OCAMLOPT  kernel/parray.ml
+OCAMLC    kernel/uGraph.mli
+OCAMLC    kernel/sorts.mli
+OCAMLC    library/coqlib.mli
+OCAMLC    engine/univNames.mli
+OCAMLC    pretyping/locusops.mli
+OCAMLC    interp/decls.mli
+OCAMLC    sysinit/coqloadpath.mli
+OCAMLOPT  plugins/micromega/polynomial.ml
+OCAMLOPT  clib/cUnix.ml
+OCAMLOPT  lib/flags.ml
+OCAMLOPT  lib/control.ml
+OCAMLOPT  lib/util.ml
+OCAMLOPT  lib/pp_diff.ml
+OCAMLOPT  lib/loc.ml
+OCAMLOPT  lib/coqProject_file.ml
+OCAMLOPT  kernel/evar.ml
+OCAMLC    kernel/context.mli
+OCAMLC    kernel/vmvalues.mli
+OCAMLOPT  interp/numTok.ml
+OCAMLOPT  gramlib/.pack/gramlib__Ploc.ml
+OCAMLOPT  gramlib/.pack/gramlib__Plexing.ml
+OCAMLOPT  tactics/dn.ml
+OCAMLOPT  plugins/omega/omega.ml
+OCAMLOPT  plugins/micromega/csdpcert.ml
+OCAMLOPT  ide/coqide/protocol/serialize.ml
+OCAMLOPT  ide/coqide/protocol/richpp.ml
+OCAMLOPT  tools/coqdoc/cpretty.ml
+OCAMLOPT -a -o clib/clib.cmxa
+OCAMLOPT  lib/stateid.ml
+OCAMLOPT  lib/cErrors.ml
+OCAMLOPT  lib/rtree.ml
+OCAMLOPT  lib/cAst.ml
+OCAMLOPT  lib/genarg.ml
+OCAMLOPT  lib/remoteCounter.ml
+OCAMLOPT  lib/envars.ml
+OCAMLOPT  kernel/names.ml
+OCAMLOPT  kernel/esubst.ml
+OCAMLC    kernel/constr.mli
+OCAMLC    kernel/vm.mli
+OCAMLOPT  parsing/tok.ml
+OCAMLOPT  stm/vcs.ml
+OCAMLOPT  stm/tQueue.ml
+File "stm/tQueue.ml", line 36, characters 11-42:
+36 |   let push ({ contents = (xs, rel) } as t) x =
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Warning 68 [match-on-mutable-state-prevent-uncurry]: This pattern depends on mutable state.
+It prevents the remaining arguments from being uncurried, which will cause additional closure allocations.
+File "stm/tQueue.ml", line 91, characters 9-51:
+91 | let push { queue = q; lock = m; cond = c; release } x =
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Warning 68 [match-on-mutable-state-prevent-uncurry]: This pattern depends on mutable state.
+It prevents the remaining arguments from being uncurried, which will cause additional closure allocations.
+OCAMLOPT  stm/workerPool.ml
+OCAMLC    plugins/funind/functional_principles_types.mli
+OCAMLOPT  plugins/micromega/mfourier.ml
+OCAMLOPT  plugins/micromega/simplex.ml
+OCAMLOPT  plugins/micromega/persistent_cache.ml
+OCAMLBEST -o plugins/micromega/csdpcert
+OCAMLOPT  ide/coqide/document.ml
+OCAMLOPT  tools/coqdoc/main.ml
+OCAMLOPT  lib/feedback.ml
+OCAMLOPT  lib/acyclicGraph.ml
+OCAMLOPT  lib/cProfile.ml
+OCAMLOPT  lib/future.ml
+File "lib/cProfile.ml", line 288, characters 25-40:
+288 |   let l = List.sort (fun (_,{tottime=p}) (_,{tottime=p'}) -> p' - p) table in
+                               ^^^^^^^^^^^^^^^
+Warning 68 [match-on-mutable-state-prevent-uncurry]: This pattern depends on mutable state.
+It prevents the remaining arguments from being uncurried, which will cause additional closure allocations.
+OCAMLOPT  lib/dAst.ml
+OCAMLOPT  lib/aux_file.ml
+OCAMLOPT  kernel/transparentState.ml
+OCAMLC    kernel/vars.mli
+OCAMLC    kernel/term.mli
+OCAMLC    kernel/cPrimitives.mli
+OCAMLC    kernel/nativevalues.mli
+OCAMLOPT  library/libnames.ml
+OCAMLC    engine/univSubst.mli
+OCAMLC    engine/univProblem.mli
+OCAMLC    engine/univops.mli
+OCAMLC    engine/nameops.mli
+OCAMLOPT  engine/evar_kinds.ml
+OCAMLOPT  engine/logic_monad.ml
+OCAMLOPT  pretyping/locus.ml
+OCAMLC    pretyping/pattern.ml
+OCAMLC    pretyping/keys.mli
+OCAMLOPT  gramlib/.pack/gramlib__Grammar.ml
+OCAMLOPT  plugins/extraction/miniml.ml
+OCAMLOPT  ide/coqide/protocol/interface.ml
+OCAMLOPT  tools/coq_makefile.ml
+OCAMLOPT  lib/cWarnings.ml
+OCAMLOPT  lib/explore.ml
+OCAMLOPT  kernel/univ.ml
+OCAMLC    kernel/retroknowledge.mli
+OCAMLC    kernel/vmbytecodes.mli
+OCAMLOPT  kernel/conv_oracle.ml
+OCAMLOPT  library/summary.ml
+OCAMLC    engine/univMinim.mli
+OCAMLOPT  pretyping/locusops.ml
+OCAMLOPT  interp/deprecation.ml
+OCAMLOPT  parsing/cLexer.ml
+OCAMLOPT  ide/coqide/protocol/xmlprotocol.ml
+OCAMLOPT  lib/cDebug.ml
+OCAMLOPT  lib/system.ml
+OCAMLOPT  lib/spawn.ml
+OCAMLOPT  kernel/uGraph.ml
+OCAMLOPT  kernel/sorts.ml
+OCAMLC    kernel/mod_subst.mli
+OCAMLOPT  kernel/vmvalues.ml
+OCAMLOPT -a -o gramlib/.pack/gramlib.cmxa
+OCAMLOPT  stm/spawned.ml
+OCAMLOPT  plugins/nsatz/utile.ml
+OCAMLOPT -a -o ide/coqide/protocol/ideprotocol.cmxa
+OCAMLOPT  ide/coqide/fake_ide.ml
+OCAMLOPT -a -o ide/coqide/ide_common.cmxa
+OCAMLOPT  tools/coqdep.ml
+OCAMLOPT  lib/objFile.ml
+OCAMLOPT  kernel/context.ml
+OCAMLC    kernel/vmemitcodes.mli
+OCAMLC    kernel/opaqueproof.mli
+OCAMLC    library/globnames.mli
+OCAMLC    tactics/term_dnet.mli
+OCAMLC    vernac/library.mli
+OCAMLOPT  plugins/nsatz/polynom.ml
+OCAMLOPT -a -o lib/lib.cmxa
+OCAMLC    kernel/declarations.ml
+OCAMLC    library/libobject.mli
+OCAMLC    library/nametab.mli
+OCAMLBEST -o bin/coqdep
+OCAMLBEST -o bin/coq_makefile
+OCAMLBEST -o bin/coqdoc
+OCAMLBEST -o bin/coqworkmgr
+OCAMLOPT  kernel/constr.ml
+OCAMLC    kernel/entries.ml
+OCAMLC    kernel/environ.mli
+OCAMLC    kernel/cooking.mli
+OCAMLOPT  engine/nameops.ml
+OCAMLOPT  plugins/nsatz/ideal.ml
+OCAMLC    kernel/declareops.mli
+OCAMLC    kernel/primred.mli
+OCAMLC    kernel/cClosure.mli
+OCAMLC    kernel/reduction.mli
+OCAMLC    kernel/type_errors.mli
+OCAMLC    kernel/inductive.mli
+OCAMLC    kernel/vmlambda.mli
+OCAMLC    kernel/nativelambda.mli
+OCAMLC    kernel/vmbytegen.mli
+OCAMLC    kernel/vmsymtable.mli
+OCAMLC    kernel/vconv.mli
+OCAMLC    kernel/nativeconv.mli
+OCAMLC    kernel/modops.mli
+OCAMLC    kernel/typeops.mli
+OCAMLC    kernel/inferCumulativity.mli
+OCAMLC    kernel/indTyping.mli
+OCAMLC    kernel/indtypes.mli
+OCAMLC    kernel/term_typing.mli
+OCAMLC    kernel/subtyping.mli
+OCAMLC    kernel/mod_typing.mli
+OCAMLC    kernel/section.mli
+OCAMLC    library/goptions.mli
+OCAMLC    engine/univGen.mli
+OCAMLC    pretyping/arguments_renaming.mli
+OCAMLC    pretyping/heads.mli
+OCAMLC    vernac/printmod.mli
+OCAMLC    sysinit/coqargs.mli
+OCAMLC    plugins/extraction/table.mli
+OCAMLC    checker/checkFlags.mli
+OCAMLC    checker/checkInductive.mli
+OCAMLC    checker/mod_checking.mli
+OCAMLC    checker/checkTypes.mli
+OCAMLC    checker/check_stat.mli
+OCAMLOPT  kernel/vars.ml
+OCAMLOPT  kernel/cPrimitives.ml
+OCAMLOPT  kernel/nativevalues.ml
+OCAMLC    kernel/relevanceops.mli
+OCAMLC    kernel/nativecode.mli
+OCAMLC    library/lib.mli
+OCAMLOPT  engine/univSubst.ml
+OCAMLOPT  pretyping/pattern.ml
+OCAMLC    vernac/attributes.mli
+OCAMLC    sysinit/coqinit.mli
+OCAMLC    plugins/extraction/mlutil.mli
+OCAMLOPT  kernel/term.ml
+OCAMLOPT  kernel/retroknowledge.ml
+OCAMLOPT  kernel/vmbytecodes.ml
+OCAMLC    kernel/nativelib.mli
+OCAMLC    kernel/nativelibrary.mli
+OCAMLOPT  engine/univProblem.ml
+OCAMLOPT  kernel/mod_subst.ml
+OCAMLC    kernel/safe_typing.mli
+OCAMLC    library/global.mli
+OCAMLC    engine/uState.mli
+OCAMLC    checker/safe_checking.mli
+OCAMLC    checker/check.mli
+OCAMLC    engine/evd.mli
+OCAMLC    engine/eConstr.mli
+OCAMLC    engine/proofview_monad.mli
+OCAMLC    pretyping/indrec.mli
+OCAMLC    engine/namegen.mli
+OCAMLC    engine/termops.mli
+OCAMLC    engine/proofview.mli
+OCAMLC    pretyping/reductionops.mli
+OCAMLC    pretyping/pretype_errors.mli
+OCAMLC    pretyping/inductiveops.mli
+OCAMLC    pretyping/retyping.mli
+OCAMLC    pretyping/vnorm.mli
+OCAMLC    pretyping/nativenorm.mli
+OCAMLC    pretyping/cbv.mli
+OCAMLC    pretyping/find_subterm.mli
+OCAMLC    pretyping/evardefine.mli
+OCAMLC    pretyping/evarsolve.mli
+OCAMLC    pretyping/recordops.mli
+OCAMLC    pretyping/typing.mli
+OCAMLC    pretyping/glob_term.ml
+OCAMLC    pretyping/typeclasses_errors.mli
+OCAMLC    pretyping/typeclasses.mli
+OCAMLC    pretyping/coercionops.mli
+OCAMLC    pretyping/program.mli
+OCAMLC    interp/constrexpr.ml
+OCAMLC    proofs/tactypes.ml
+OCAMLC    proofs/goal.mli
+OCAMLC    proofs/refine.mli
+OCAMLC    proofs/logic.mli
+OCAMLC    parsing/pcoq.mli
+OCAMLC    printing/pputils.mli
+OCAMLC    printing/ppconstr.mli
+OCAMLC    tactics/btermdn.mli
+OCAMLC    tactics/tacticals.mli
+OCAMLC    tactics/hipattern.mli
+OCAMLC    tactics/ind_tables.mli
+OCAMLC    tactics/cbn.mli
+OCAMLC    tactics/abstract.mli
+OCAMLC    tactics/elim.mli
+OCAMLC    tactics/contradiction.mli
+OCAMLC    tactics/inv.mli
+OCAMLC    tactics/eqdecide.mli
+OCAMLC    vernac/declaremods.mli
+OCAMLC    vernac/himsg.mli
+OCAMLC    vernac/retrieveObl.mli
+OCAMLC    vernac/declareUniv.mli
+OCAMLC    vernac/auto_ind_decl.mli
+OCAMLC    vernac/comPrimitive.mli
+OCAMLC    vernac/prettyp.mli
+OCAMLC    plugins/ltac/leminv.mli
+OCAMLC    plugins/ltac/extratactics.mli
+OCAMLC    plugins/cc/ccalgo.mli
+OCAMLC    plugins/firstorder/formula.mli
+OCAMLC    plugins/firstorder/unify.mli
+OCAMLC    plugins/extraction/extraction.mli
+OCAMLC    plugins/funind/glob_term_to_relation.mli
+OCAMLC    plugins/funind/invfun.mli
+OCAMLC    plugins/micromega/coq_micromega.mli
+OCAMLC    plugins/omega/coq_omega.mli
+OCAMLC    plugins/btauto/refl_btauto.mli
+OCAMLC    plugins/nsatz/nsatz.mli
+OCAMLC    plugins/rtauto/refl_tauto.mli
+OCAMLC    user-contrib/Ltac2/tac2qexpr.mli
+OCAMLC    user-contrib/Ltac2/tac2core.mli
+OCAMLOPT  kernel/vmemitcodes.ml
+OCAMLOPT  kernel/opaqueproof.ml
+OCAMLOPT  library/globnames.ml
+OCAMLC    engine/evarutil.mli
+OCAMLC    engine/ftactic.mli
+OCAMLC    pretyping/evarconv.mli
+OCAMLC    interp/notation_term.ml
+OCAMLC    interp/smartlocate.mli
+OCAMLC    interp/constrexpr_ops.mli
+OCAMLC    interp/reserve.mli
+OCAMLC    interp/impargs.mli
+OCAMLC    interp/modintern.mli
+OCAMLC    proofs/miscprint.mli
+OCAMLC    proofs/proof.mli
+OCAMLC    parsing/extend.mli
+OCAMLC    parsing/g_constr.ml
+OCAMLC    parsing/g_prim.ml
+OCAMLC    tactics/eqschemes.mli
+OCAMLC    tactics/elimschemes.mli
+OCAMLC    vernac/declareInd.mli
+OCAMLC    plugins/cc/ccproof.mli
+OCAMLOPT  kernel/declarations.ml
+OCAMLOPT  library/libobject.ml
+OCAMLOPT  library/nametab.ml
+OCAMLC    pretyping/geninterp.mli
+OCAMLC    pretyping/coercion.mli
+OCAMLC    interp/genintern.mli
+OCAMLC    interp/notation_ops.mli
+OCAMLC    interp/notation.mli
+OCAMLC    interp/syntax_def.mli
+OCAMLC    interp/implicit_quantifiers.mli
+OCAMLC    proofs/proof_bullet.mli
+OCAMLC    parsing/notation_gram.ml
+OCAMLC    parsing/ppextend.mli
+OCAMLC    printing/genprint.mli
+OCAMLC    printing/proof_diffs.mli
+OCAMLC    vernac/egramcoq.mli
+OCAMLC    plugins/cc/cctac.mli
+OCAMLC    plugins/ssrmatching/ssrmatching.mli
+OCAMLC    user-contrib/Ltac2/tac2intern.mli
+OCAMLOPT  kernel/entries.ml
+OCAMLOPT  kernel/cooking.ml
+OCAMLOPT  engine/univNames.ml
+OCAMLC    pretyping/ltac_pretype.ml
+OCAMLC    interp/dumpglob.mli
+OCAMLC    parsing/notgram_ops.mli
+OCAMLC    plugins/ssrmatching/g_ssrmatching.mli
+OCAMLC    user-contrib/Ltac2/tac2ffi.mli
+OCAMLC    user-contrib/Ltac2/tac2match.mli
+OCAMLOPT  kernel/declareops.ml
+OCAMLC    pretyping/glob_ops.mli
+OCAMLC    pretyping/patternops.mli
+OCAMLC    pretyping/constr_matching.mli
+OCAMLC    pretyping/tacred.mli
+OCAMLC    pretyping/detyping.mli
+OCAMLC    pretyping/globEnv.mli
+OCAMLC    interp/stdarg.mli
+OCAMLC    interp/constrextern.mli
+OCAMLC    proofs/evar_refiner.mli
+OCAMLC    proofs/tacmach.mli
+OCAMLC    printing/printer.mli
+OCAMLC    tactics/genredexpr.ml
+OCAMLC    toplevel/coqcargs.mli
+OCAMLC    user-contrib/Ltac2/tac2env.mli
+OCAMLC    user-contrib/Ltac2/tac2print.mli
+OCAMLOPT  kernel/environ.ml
+OCAMLC    pretyping/cases.mli
+OCAMLC    pretyping/pretyping.mli
+OCAMLC    tactics/redops.mli
+OCAMLC    tactics/redexpr.mli
+OCAMLC    tactics/ppred.mli
+OCAMLC    vernac/assumptions.mli
+OCAMLC    plugins/funind/indfun_common.mli
+OCAMLC    plugins/funind/glob_termops.mli
+OCAMLC    user-contrib/Ltac2/tac2interp.mli
+OCAMLC    pretyping/unification.mli
+OCAMLC    interp/constrintern.mli
+OCAMLC    plugins/funind/functional_principles_proofs.mli
+OCAMLC    proofs/clenv.mli
+OCAMLC    tactics/tactics.mli
+OCAMLC    tactics/hints.mli
+OCAMLC    tactics/auto.mli
+OCAMLC    tactics/eauto.mli
+OCAMLC    tactics/class_tactics.mli
+OCAMLC    vernac/vernacexpr.ml
+OCAMLC    plugins/firstorder/sequent.mli
+OCAMLOPT  kernel/primred.ml
+OCAMLOPT  kernel/section.ml
+OCAMLC    tactics/equality.mli
+OCAMLC    plugins/firstorder/rules.mli
+OCAMLC    plugins/firstorder/ground.mli
+OCAMLOPT  checker/checkFlags.ml
+OCAMLOPT  checker/check_stat.ml
+OCAMLC    tactics/autorewrite.mli
+OCAMLC    vernac/pvernac.mli
+OCAMLC    vernac/vernacprop.mli
+OCAMLC    vernac/locality.mli
+OCAMLC    vernac/egramml.mli
+OCAMLC    vernac/ppvernac.mli
+OCAMLC    vernac/proof_using.mli
+OCAMLC    vernac/metasyntax.mli
+OCAMLC    vernac/comHints.mli
+OCAMLC    vernac/indschemes.mli
+OCAMLC    vernac/comAssumption.mli
+OCAMLC    vernac/search.mli
+OCAMLC    vernac/comSearch.mli
+OCAMLC    vernac/comInductive.mli
+OCAMLC    vernac/record.mli
+OCAMLC    vernac/mltop.mli
+OCAMLC    vernac/topfmt.mli
+OCAMLC    vernac/comArguments.mli
+OCAMLC    toplevel/g_toplevel.ml
+OCAMLC    plugins/ltac/tacexpr.mli
+OCAMLC    plugins/syntax/number.mli
+OCAMLC    plugins/firstorder/instances.mli
+OCAMLC    plugins/syntax/float_syntax.ml
+OCAMLC    user-contrib/Ltac2/tac2types.mli
+OCAMLOPT  kernel/cClosure.ml
+OCAMLC    vernac/g_vernac.ml
+OCAMLC    vernac/declare.mli
+OCAMLC    plugins/ltac/tacarg.mli
+OCAMLC    plugins/ltac/tacsubst.mli
+OCAMLC    plugins/ltac/tacenv.mli
+OCAMLC    plugins/ltac/pptactic.mli
+OCAMLC    plugins/ltac/pltac.mli
+OCAMLC    plugins/ltac/taccoerce.mli
+OCAMLC    plugins/ltac/tactic_debug.mli
+OCAMLC    plugins/ltac/tacintern.mli
+OCAMLC    plugins/ltac/profile_ltac.mli
+OCAMLC    plugins/ltac/tactic_matching.mli
+OCAMLC    plugins/ltac/tactic_option.mli
+OCAMLC    plugins/syntax/string_notation.mli
+OCAMLC    plugins/ltac/tacexpr.ml
+OCAMLC    plugins/ltac/tacarg.ml
+OCAMLC    plugins/ltac/tacsubst.ml
+OCAMLC    plugins/ltac/tacenv.ml
+OCAMLC    plugins/ltac/pptactic.ml
+OCAMLC    plugins/ltac/pltac.ml
+OCAMLC    plugins/ltac/taccoerce.ml
+OCAMLC    plugins/ltac/tactic_debug.ml
+OCAMLC    plugins/ltac/tacintern.ml
+OCAMLC    plugins/ltac/profile_ltac.ml
+OCAMLC    plugins/ltac/tactic_matching.ml
+OCAMLC    plugins/ltac/leminv.ml
+OCAMLC    plugins/extraction/extract_env.mli
+OCAMLC    plugins/funind/recdef.mli
+OCAMLC    plugins/funind/gen_principle.mli
+OCAMLC    plugins/derive/derive.mli
+OCAMLC    user-contrib/Ltac2/tac2entries.mli
+OCAMLC    user-contrib/Ltac2/tac2extffi.mli
+OCAMLC    user-contrib/Ltac2/tac2tactics.mli
+OCAMLOPT  kernel/relevanceops.ml
+OCAMLC    vernac/g_proofs.ml
+OCAMLC    vernac/vernacstate.mli
+OCAMLC    vernac/recLemmas.mli
+OCAMLC    vernac/comCoercion.mli
+OCAMLC    vernac/comDefinition.mli
+OCAMLC    vernac/classes.mli
+OCAMLC    vernac/comFixpoint.mli
+OCAMLC    vernac/comProgramFixpoint.mli
+OCAMLC    vernac/comTactic.mli
+OCAMLC    vernac/vernacinterp.mli
+OCAMLOPT  kernel/reduction.ml
+OCAMLC    vernac/vernacextend.mli
+OCAMLC    plugins/ltac/tacinterp.mli
+OCAMLC    vernac/vernacentries.mli
+OCAMLC    vernac/vernac_classifier.mli
+OCAMLC    stm/stm.mli
+OCAMLC    plugins/ltac/tacentries.mli
+OCAMLC    plugins/ltac/evar_tactics.mli
+OCAMLC    plugins/ltac/extraargs.mli
+OCAMLC    plugins/ltac/rewrite.mli
+OCAMLC    plugins/syntax/g_number_string.ml
+OCAMLC    plugins/ltac/tacinterp.ml
+OCAMLC    plugins/ltac/tacentries.ml
+File "plugins/syntax/g_number_string.mlg", line 100, characters 20-23:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/syntax/g_number_string.mlg", line 105, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/syntax/g_number_string.mlg", line 111, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ltac/evar_tactics.ml
+OCAMLC    plugins/ltac/tactic_option.ml
+OCAMLC    plugins/ltac/extraargs.ml
+OCAMLC    plugins/ltac/extratactics.ml
+OCAMLC    plugins/ltac/rewrite.ml
+OCAMLC    plugins/derive/g_derive.ml
+File "plugins/ltac/extratactics.mlg", line 329, characters 15-18:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 332, characters 17-20:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 334, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 336, characters 63-66:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 423, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 427, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 434, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 438, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 446, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/derive/g_derive.mlg", line 29, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 453, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  checker/checkTypes.ml
+File "plugins/ltac/extratactics.mlg", line 570, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 575, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  kernel/type_errors.ml
+File "plugins/ltac/extratactics.mlg", line 920, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 952, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 1095, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 1098, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 1104, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 1106, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  pretyping/heads.ml
+OCAMLC    stm/stmargs.mli
+OCAMLC    stm/proofBlockDelimiter.mli
+OCAMLC    toplevel/vernac.mli
+OCAMLC    plugins/ltac/g_obligations.ml
+OCAMLC    plugins/ltac/coretactics.ml
+OCAMLC    plugins/ltac/profile_ltac_tactics.ml
+File "plugins/ltac/profile_ltac_tactics.mlg", line 73, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/profile_ltac_tactics.mlg", line 77, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/profile_ltac_tactics.mlg", line 79, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/profile_ltac_tactics.mlg", line 83, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 94, characters 21-24:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 96, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 98, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 100, characters 64-67:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 102, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 103, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 108, characters 17-20:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 110, characters 64-67:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 115, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 117, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 119, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ltac/g_auto.ml
+File "plugins/ltac/g_obligations.mlg", line 120, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 126, characters 63-66:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 127, characters 40-43:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 132, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 132, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 141, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 151, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 156, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 156, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 161, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 161, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ltac/g_class.ml
+File "plugins/ltac/g_class.mlg", line 37, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_class.mlg", line 42, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_class.mlg", line 86, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_auto.mlg", line 269, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ltac/g_rewrite.ml
+OCAMLC    plugins/ltac/g_eqdecide.ml
+OCAMLC    plugins/ltac/g_tactic.ml
+OCAMLC    plugins/ltac/g_ltac.ml
+OCAMLOPT  kernel/inductive.ml
+File "plugins/ltac/g_rewrite.mlg", line 182, characters 30-33:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 186, characters 23-26:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 188, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 194, characters 23-26:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 196, characters 30-33:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 202, characters 30-33:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 206, characters 37-40:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 209, characters 23-26:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 237, characters 32-35:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 241, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 243, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 249, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 251, characters 32-35:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 257, characters 32-35:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 261, characters 39-42:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 264, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 271, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 275, characters 20-23:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 280, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 283, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 286, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 290, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 309, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    toplevel/coqrc.mli
+File "plugins/ltac/g_ltac.mlg", line 408, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 419, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 466, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 471, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 476, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 513, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 516, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    toplevel/coqloop.mli
+OCAMLC    toplevel/ccompile.mli
+OCAMLC    toplevel/coqtop.mli
+OCAMLC -pack -o plugins/ltac/ltac_plugin.cmo
+OCAMLOPT  kernel/vmlambda.ml
+OCAMLOPT  kernel/nativelambda.ml
+OCAMLOPT  kernel/inferCumulativity.ml
+OCAMLC    plugins/cc/g_congruence.ml
+OCAMLC    plugins/firstorder/g_ground.ml
+OCAMLC    plugins/ssrmatching/ssrmatching.ml
+File "plugins/firstorder/g_ground.mlg", line 56, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/firstorder/g_ground.mlg", line 61, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ssrmatching/g_ssrmatching.ml
+OCAMLC    plugins/extraction/g_extraction.ml
+OCAMLC    plugins/funind/indfun.mli
+OCAMLC    plugins/ring/ring_ast.mli
+OCAMLC    plugins/micromega/zify.mli
+File "plugins/extraction/g_extraction.mlg", line 79, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 80, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 84, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 88, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 94, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 100, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 105, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 111, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 117, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 122, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 126, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 131, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 138, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 144, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 148, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 153, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 161, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 166, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 172, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 177, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/omega/g_omega.ml
+OCAMLC    plugins/btauto/g_btauto.ml
+OCAMLC    plugins/nsatz/g_nsatz.ml
+OCAMLC    plugins/rtauto/g_rtauto.ml
+OCAMLC    user-contrib/Ltac2/tac2quote.mli
+OCAMLOPT  kernel/vmbytegen.ml
+OCAMLOPT  kernel/nativecode.ml
+OCAMLC    plugins/funind/g_indfun.ml
+File "plugins/funind/g_indfun.mlg", line 222, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/funind/g_indfun.mlg", line 283, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/funind/g_indfun.mlg", line 290, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/funind/g_indfun.mlg", line 296, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ring/ring.mli
+OCAMLC    plugins/micromega/g_zify.ml
+File "plugins/micromega/g_zify.mlg", line 29, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 30, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 31, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 32, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 33, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 34, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 35, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 36, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 37, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 38, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 39, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 53, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 54, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 55, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 56, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 57, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 58, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 59, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    user-contrib/Ltac2/g_ltac2.ml
+OCAMLC -pack -o plugins/ssrmatching/ssrmatching_plugin.cmo
+OCAMLC    plugins/ring/g_ring.ml
+OCAMLOPT  kernel/vmsymtable.ml
+File "plugins/ring/g_ring.mlg", line 88, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ring/g_ring.mlg", line 90, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ring/g_ring.mlg", line 126, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ring/g_ring.mlg", line 128, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  kernel/modops.ml
+OCAMLC    plugins/ssr/ssrast.mli
+OCAMLOPT  kernel/vm.ml
+File "user-contrib/Ltac2/g_ltac2.mlg", line 912, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "user-contrib/Ltac2/g_ltac2.mlg", line 915, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "user-contrib/Ltac2/g_ltac2.mlg", line 932, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "user-contrib/Ltac2/g_ltac2.mlg", line 947, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ssr/ssrprinters.mli
+OCAMLC    plugins/ssr/ssrcommon.mli
+OCAMLC    plugins/ssr/ssrtacticals.mli
+OCAMLC    plugins/ssr/ssrelim.mli
+OCAMLC    plugins/ssr/ssrview.mli
+OCAMLC    plugins/ssr/ssrbwd.mli
+OCAMLC    plugins/ssr/ssrequality.mli
+OCAMLC    plugins/ssr/ssripats.mli
+OCAMLC    plugins/ssr/ssrprinters.ml
+OCAMLC    plugins/ssr/ssrcommon.ml
+OCAMLC    plugins/ssr/ssrtacticals.ml
+OCAMLC    plugins/ssr/ssrelim.ml
+OCAMLC    plugins/ssr/ssrview.ml
+OCAMLC    plugins/ssr/ssrbwd.ml
+OCAMLC    plugins/ssr/ssrequality.ml
+File "plugins/ssr/ssrview.ml", line 404, characters 30-47:
+404 | let tclIPAT_VIEWS ~views:vs ?(clear_if_id=false) ~conclusion =
+                                    ^^^^^^^^^^^^^^^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLC    plugins/ssr/ssripats.ml
+OCAMLC    plugins/ssr/ssrvernac.ml
+File "plugins/ssr/ssrvernac.mlg", line 173, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ssr/ssrvernac.mlg", line 284, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ssr/ssrvernac.mlg", line 302, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  kernel/nativelib.ml
+OCAMLOPT  kernel/vconv.ml
+OCAMLOPT  kernel/subtyping.ml
+OCAMLOPT  kernel/nativelibrary.ml
+OCAMLC    plugins/ssr/ssrfwd.mli
+OCAMLC    plugins/ssr/ssrparser.mli
+OCAMLC    plugins/ssr/ssrfwd.ml
+OCAMLC    plugins/ssr/ssrparser.ml
+OCAMLOPT  kernel/nativeconv.ml
+OCAMLOPT  kernel/typeops.ml
+OCAMLOPT  kernel/indTyping.ml
+OCAMLOPT  kernel/term_typing.ml
+OCAMLOPT  kernel/mod_typing.ml
+OCAMLOPT  kernel/indtypes.ml
+OCAMLOPT  kernel/safe_typing.ml
+OCAMLOPT  checker/checkInductive.ml
+OCAMLOPT  checker/mod_checking.ml
+OCAMLC -pack -o plugins/ssr/ssreflect_plugin.cmo
+OCAMLC    plugins/ssrsearch/g_search.ml
+OCAMLOPT -a -o kernel/kernel.cmxa
+OCAMLOPT  library/global.ml
+OCAMLOPT  checker/safe_checking.ml
+OCAMLOPT  checker/check.ml
+File "plugins/ssrsearch/g_search.mlg", line 324, characters 64-67:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  library/lib.ml
+OCAMLOPT  engine/univGen.ml
+OCAMLOPT  tactics/declareUctx.ml
+OCAMLOPT  stm/asyncTaskQueue.ml
+OCAMLOPT  checker/checker.ml
+OCAMLOPT  library/goptions.ml
+OCAMLOPT  library/coqlib.ml
+OCAMLOPT  pretyping/keys.ml
+OCAMLOPT  interp/decls.ml
+OCAMLOPT  tactics/declareScheme.ml
+OCAMLOPT -a -o checker/check.cmxa
+OCAMLOPT -o bin/coqchk
+OCAMLOPT -a -o library/library.cmxa
+OCAMLOPT  engine/univMinim.ml
+OCAMLOPT  proofs/goal_select.ml
+OCAMLOPT  vernac/attributes.ml
+OCAMLOPT  plugins/micromega/certificate.ml
+OCAMLOPT  plugins/rtauto/proof_search.ml
+OCAMLOPT  engine/uState.ml
+OCAMLOPT  engine/univops.ml
+OCAMLOPT  engine/evd.ml
+OCAMLOPT  engine/eConstr.ml
+OCAMLOPT  engine/proofview_monad.ml
+OCAMLOPT  engine/namegen.ml
+OCAMLOPT  pretyping/typeclasses_errors.ml
+OCAMLOPT  engine/termops.ml
+OCAMLOPT  pretyping/glob_term.ml
+OCAMLOPT  proofs/tactypes.ml
+OCAMLOPT  proofs/miscprint.ml
+OCAMLOPT  interp/constrexpr.ml
+OCAMLOPT  interp/notation_term.ml
+OCAMLOPT  parsing/extend.ml
+OCAMLOPT  engine/evarutil.ml
+OCAMLOPT  pretyping/typeclasses.ml
+OCAMLOPT  tactics/term_dnet.ml
+OCAMLOPT  interp/dumpglob.ml
+OCAMLOPT  engine/proofview.ml
+OCAMLOPT  pretyping/reductionops.ml
+OCAMLOPT  pretyping/program.ml
+OCAMLOPT  engine/ftactic.ml
+OCAMLOPT  tactics/ind_tables.ml
+OCAMLOPT -a -o engine/engine.cmxa
+OCAMLOPT  pretyping/geninterp.ml
+OCAMLOPT  pretyping/ltac_pretype.ml
+OCAMLOPT  interp/stdarg.ml
+OCAMLOPT  printing/genprint.ml
+OCAMLOPT  user-contrib/Ltac2/tac2ffi.ml
+OCAMLOPT  pretyping/pretype_errors.ml
+OCAMLOPT  pretyping/inductiveops.ml
+OCAMLOPT  pretyping/cbv.ml
+OCAMLOPT  pretyping/recordops.ml
+OCAMLOPT  proofs/goal.ml
+OCAMLOPT  parsing/pcoq.ml
+OCAMLOPT  printing/pputils.ml
+OCAMLOPT  tactics/cbn.ml
+OCAMLOPT  vernac/retrieveObl.ml
+OCAMLOPT  vernac/canonical.ml
+OCAMLOPT  plugins/firstorder/unify.ml
+OCAMLOPT  user-contrib/Ltac2/tac2extffi.ml
+OCAMLOPT  pretyping/arguments_renaming.ml
+OCAMLOPT  pretyping/nativenorm.ml
+OCAMLOPT  pretyping/find_subterm.ml
+OCAMLOPT  pretyping/evardefine.ml
+OCAMLOPT  pretyping/glob_ops.ml
+OCAMLOPT  interp/impargs.ml
+OCAMLOPT  parsing/g_prim.ml
+OCAMLOPT  pretyping/retyping.ml
+OCAMLOPT  pretyping/vnorm.ml
+OCAMLOPT  pretyping/evarsolve.ml
+OCAMLOPT  pretyping/patternops.ml
+OCAMLOPT  pretyping/indrec.ml
+OCAMLOPT  pretyping/globEnv.ml
+OCAMLOPT  tactics/eqschemes.ml
+OCAMLOPT  tactics/elimschemes.ml
+OCAMLOPT  pretyping/constr_matching.ml
+OCAMLOPT  tactics/btermdn.ml
+OCAMLOPT  pretyping/evarconv.ml
+OCAMLOPT  pretyping/detyping.ml
+OCAMLOPT  tactics/hipattern.ml
+OCAMLOPT  user-contrib/Ltac2/tac2match.ml
+OCAMLOPT  plugins/firstorder/formula.ml
+OCAMLOPT  interp/genintern.ml
+OCAMLOPT  interp/notation_ops.ml
+OCAMLOPT  user-contrib/Ltac2/tac2env.ml
+OCAMLOPT  pretyping/typing.ml
+OCAMLOPT  user-contrib/Ltac2/tac2interp.ml
+OCAMLOPT  pretyping/tacred.ml
+OCAMLOPT  proofs/refine.ml
+OCAMLOPT  interp/reserve.ml
+OCAMLOPT  pretyping/coercionops.ml
+OCAMLOPT  proofs/logic.ml
+OCAMLOPT  tactics/genredexpr.ml
+OCAMLOPT  tactics/redops.ml
+OCAMLOPT  tactics/ppred.ml
+OCAMLOPT  tactics/redexpr.ml
+OCAMLOPT  pretyping/coercion.ml
+OCAMLOPT  interp/notation.ml
+OCAMLOPT  proofs/tacmach.ml
+OCAMLOPT  tactics/tacticals.ml
+OCAMLOPT  pretyping/cases.ml
+OCAMLOPT  interp/syntax_def.ml
+OCAMLOPT  parsing/notation_gram.ml
+OCAMLOPT  parsing/notgram_ops.ml
+OCAMLOPT  parsing/ppextend.ml
+OCAMLOPT  vernac/egramcoq.ml
+OCAMLOPT  interp/smartlocate.ml
+OCAMLOPT  interp/constrexpr_ops.ml
+File "pretyping/cases.ml", line 3089, characters 6-24:
+3089 |   let args_to_rel_vector : type env length size size_tail .
+             ^^^^^^^^^^^^^^^^^^
+Warning 32 [unused-value-declaration]: unused value args_to_rel_vector.
+OCAMLOPT  interp/implicit_quantifiers.ml
+OCAMLOPT  parsing/g_constr.ml
+OCAMLOPT -a -o parsing/parsing.cmxa
+OCAMLOPT  pretyping/pretyping.ml
+OCAMLOPT  pretyping/unification.ml
+OCAMLOPT  interp/constrintern.ml
+OCAMLOPT  proofs/evar_refiner.ml
+OCAMLOPT  proofs/proof.ml
+OCAMLOPT  proofs/proof_bullet.ml
+OCAMLOPT -a -o pretyping/pretyping.cmxa
+OCAMLOPT  proofs/clenv.ml
+OCAMLOPT  interp/modintern.ml
+OCAMLOPT  interp/constrextern.ml
+OCAMLOPT  vernac/declareUniv.ml
+File "interp/constrextern.ml", line 201, characters 30-35:
+201 | let toggle_notation_printing ?scope ~notation ~activate =
+                                    ^^^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  vernac/declaremods.ml
+OCAMLOPT -a -o proofs/proofs.cmxa
+OCAMLOPT  vernac/library.ml
+OCAMLOPT -a -o interp/interp.cmxa
+OCAMLOPT  printing/ppconstr.ml
+OCAMLOPT  printing/proof_diffs.ml
+OCAMLOPT  printing/printer.ml
+OCAMLOPT -a -o printing/printing.cmxa
+OCAMLOPT  tactics/tactics.ml
+OCAMLOPT  tactics/hints.ml
+OCAMLOPT  vernac/himsg.ml
+OCAMLOPT  vernac/assumptions.ml
+OCAMLOPT  plugins/syntax/number.ml
+OCAMLOPT  plugins/cc/ccalgo.ml
+OCAMLOPT  plugins/firstorder/sequent.ml
+OCAMLOPT  plugins/extraction/table.ml
+OCAMLOPT  user-contrib/Ltac2/tac2print.ml
+OCAMLOPT  vernac/vernacexpr.ml
+OCAMLOPT  plugins/syntax/string_notation.ml
+OCAMLOPT  plugins/cc/ccproof.ml
+OCAMLOPT  plugins/extraction/mlutil.ml
+OCAMLOPT  user-contrib/Ltac2/tac2quote.ml
+OCAMLOPT  vernac/pvernac.ml
+OCAMLOPT  vernac/vernacprop.ml
+OCAMLOPT  vernac/locality.ml
+OCAMLOPT  vernac/egramml.ml
+OCAMLOPT  vernac/mltop.ml
+OCAMLOPT  vernac/comArguments.ml
+File "plugins/extraction/mlutil.ml", line 220, characters 16-30:
+220 |   let push_type {env=e;free=f} t =
+                      ^^^^^^^^^^^^^^
+Warning 68 [match-on-mutable-state-prevent-uncurry]: This pattern depends on mutable state.
+It prevents the remaining arguments from being uncurried, which will cause additional closure allocations.
+File "plugins/extraction/mlutil.ml", line 225, characters 20-34:
+225 |   let push_std_type {env=e;free=f} t =
+                          ^^^^^^^^^^^^^^
+Warning 68 [match-on-mutable-state-prevent-uncurry]: This pattern depends on mutable state.
+It prevents the remaining arguments from being uncurried, which will cause additional closure allocations.
+OCAMLOPT  toplevel/g_toplevel.ml
+OCAMLOPT  plugins/syntax/float_syntax.ml
+OCAMLOPT  vernac/g_vernac.ml
+OCAMLOPT  vernac/ppvernac.ml
+OCAMLOPT  vernac/loadpath.ml
+OCAMLOPT  plugins/extraction/modutil.ml
+OCAMLOPT  plugins/extraction/extraction.ml
+OCAMLOPT  plugins/extraction/common.ml
+OCAMLOPT  plugins/micromega/coq_micromega.ml
+OCAMLOPT  plugins/btauto/refl_btauto.ml
+OCAMLOPT  plugins/nsatz/nsatz.ml
+OCAMLOPT -pack -o plugins/syntax/float_syntax_plugin.cmx
+OCAMLOPT  tactics/abstract.ml
+OCAMLOPT  tactics/elim.ml
+OCAMLOPT  tactics/equality.ml
+OCAMLOPT  tactics/contradiction.ml
+OCAMLOPT  tactics/auto.ml
+OCAMLOPT  vernac/metasyntax.ml
+OCAMLOPT  vernac/topfmt.ml
+OCAMLOPT  sysinit/coqloadpath.ml
+OCAMLOPT  plugins/firstorder/rules.ml
+OCAMLOPT  plugins/extraction/ocaml.ml
+OCAMLOPT  plugins/extraction/haskell.ml
+OCAMLOPT  plugins/extraction/scheme.ml
+OCAMLOPT  plugins/extraction/json.ml
+OCAMLOPT  plugins/omega/coq_omega.ml
+OCAMLOPT -shared -o plugins/syntax/float_syntax_plugin.cmxs
+OCAMLOPT  tactics/inv.ml
+OCAMLOPT  tactics/eauto.ml
+OCAMLOPT  tactics/eqdecide.ml
+OCAMLOPT  tactics/autorewrite.ml
+OCAMLOPT  vernac/g_proofs.ml
+OCAMLOPT  vernac/proof_using.ml
+OCAMLOPT  toplevel/coqcargs.ml
+OCAMLOPT  plugins/ltac/tacexpr.ml
+OCAMLOPT  plugins/cc/cctac.ml
+OCAMLOPT  plugins/firstorder/instances.ml
+OCAMLOPT  tactics/class_tactics.ml
+OCAMLOPT  vernac/declare.ml
+OCAMLOPT  plugins/ltac/tacarg.ml
+OCAMLOPT  plugins/ltac/tactic_matching.ml
+OCAMLOPT  plugins/ltac/tacsubst.ml
+OCAMLOPT  plugins/ltac/pltac.ml
+OCAMLOPT -a -o tactics/tactics.cmxa
+OCAMLOPT  plugins/ltac/tacenv.ml
+OCAMLOPT  plugins/ltac/pptactic.ml
+OCAMLOPT  vernac/vernacstate.ml
+OCAMLOPT  vernac/comHints.ml
+OCAMLOPT  vernac/recLemmas.ml
+OCAMLOPT  vernac/comCoercion.ml
+OCAMLOPT  vernac/auto_ind_decl.ml
+OCAMLOPT  vernac/comDefinition.ml
+File "vernac/comCoercion.ml", line 265, characters 28-41:
+265 | let declare_coercion coef ?(local = false) ~isid ~src:cls ~target:clt ~params:ps =
+                                  ^^^^^^^^^^^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  vernac/classes.ml
+OCAMLOPT  vernac/comPrimitive.ml
+OCAMLOPT  vernac/comFixpoint.ml
+OCAMLOPT  vernac/printmod.ml
+OCAMLOPT  plugins/ltac/taccoerce.ml
+OCAMLOPT  plugins/ltac/tactic_debug.ml
+OCAMLOPT  plugins/ltac/tacintern.ml
+OCAMLOPT  plugins/ltac/profile_ltac.ml
+OCAMLOPT  plugins/ltac/leminv.ml
+OCAMLOPT  plugins/extraction/extract_env.ml
+OCAMLOPT  plugins/funind/indfun_common.ml
+OCAMLOPT  plugins/derive/derive.ml
+OCAMLOPT  vernac/vernacextend.ml
+File "vernac/vernacextend.ml", line 97, characters 36-39:
+97 | let type_vernac opn converted_args ?loc ~atts =
+                                         ^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  vernac/indschemes.ml
+OCAMLOPT  vernac/comAssumption.ml
+OCAMLOPT  vernac/comProgramFixpoint.ml
+OCAMLOPT  plugins/syntax/g_number_string.ml
+File "plugins/syntax/g_number_string.mlg", line 100, characters 20-23:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/syntax/g_number_string.mlg", line 105, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/syntax/g_number_string.mlg", line 111, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/funind/glob_termops.ml
+OCAMLOPT  plugins/funind/functional_principles_types.ml
+OCAMLOPT  plugins/funind/invfun.ml
+OCAMLOPT  plugins/funind/indfun.ml
+OCAMLOPT  plugins/derive/g_derive.ml
+OCAMLOPT  vernac/declareInd.ml
+File "plugins/derive/g_derive.mlg", line 29, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT -pack -o plugins/syntax/number_string_notation_plugin.cmx
+OCAMLOPT -pack -o plugins/derive/derive_plugin.cmx
+OCAMLOPT -shared -o plugins/derive/derive_plugin.cmxs
+OCAMLOPT -shared -o plugins/syntax/number_string_notation_plugin.cmxs
+OCAMLOPT  vernac/search.ml
+OCAMLOPT  vernac/comInductive.ml
+OCAMLOPT  vernac/prettyp.ml
+OCAMLOPT  vernac/comSearch.ml
+OCAMLOPT  vernac/record.ml
+OCAMLOPT  plugins/funind/glob_term_to_relation.ml
+OCAMLOPT  vernac/vernacentries.ml
+OCAMLOPT  vernac/comTactic.ml
+OCAMLOPT  vernac/vernacinterp.ml
+OCAMLOPT  stm/partac.ml
+OCAMLOPT  plugins/ltac/tacinterp.ml
+OCAMLOPT  vernac/vernac_classifier.ml
+OCAMLOPT  sysinit/coqargs.ml
+OCAMLOPT -a -o vernac/vernac.cmxa
+OCAMLOPT  sysinit/coqinit.ml
+OCAMLOPT -a -o sysinit/sysinit.cmxa
+OCAMLOPT  stm/stm.ml
+File "stm/stm.ml", line 1737, characters 24-27:
+1737 |   let build_proof ~doc ?loc ~drop_pt ~exn_info ~block_start ~block_stop ~name:pname =
+                               ^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "stm/stm.ml", line 2569, characters 2-26:
+2569 |   ({ verbose; expr } as x) c =
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+Warning 68 [match-on-mutable-state-prevent-uncurry]: This pattern depends on mutable state.
+It prevents the remaining arguments from being uncurried, which will cause additional closure allocations.
+OCAMLOPT  plugins/ltac/tacentries.ml
+OCAMLOPT  plugins/ltac/evar_tactics.ml
+OCAMLOPT  plugins/ltac/tactic_option.ml
+OCAMLOPT  plugins/ltac/rewrite.ml
+OCAMLOPT  stm/stmargs.ml
+OCAMLOPT  stm/proofBlockDelimiter.ml
+OCAMLOPT  stm/vio_checking.ml
+OCAMLOPT  toplevel/vernac.ml
+OCAMLOPT  plugins/ltac/extraargs.ml
+OCAMLOPT  plugins/ltac/profile_ltac_tactics.ml
+OCAMLOPT  plugins/ltac/g_auto.ml
+File "plugins/ltac/profile_ltac_tactics.mlg", line 73, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/profile_ltac_tactics.mlg", line 77, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/profile_ltac_tactics.mlg", line 79, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/profile_ltac_tactics.mlg", line 83, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/ltac/g_class.ml
+File "plugins/ltac/g_class.mlg", line 37, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_class.mlg", line 42, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_auto.mlg", line 269, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_class.mlg", line 86, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/ltac/g_eqdecide.ml
+OCAMLOPT  plugins/ltac/g_tactic.ml
+OCAMLOPT  plugins/ltac/g_ltac.ml
+OCAMLOPT -a -o stm/stm.cmxa
+OCAMLOPT  toplevel/coqrc.ml
+OCAMLOPT  toplevel/coqloop.ml
+File "plugins/ltac/g_ltac.mlg", line 408, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 419, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 466, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 471, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 476, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 513, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_ltac.mlg", line 516, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  toplevel/ccompile.ml
+OCAMLOPT  plugins/ltac/g_obligations.ml
+File "plugins/ltac/g_obligations.mlg", line 94, characters 21-24:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 96, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 98, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 100, characters 64-67:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 102, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 103, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 108, characters 17-20:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 110, characters 64-67:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 115, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 117, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 119, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 120, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/ltac/coretactics.ml
+File "plugins/ltac/g_obligations.mlg", line 126, characters 63-66:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 127, characters 40-43:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 132, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 132, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 141, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 151, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 156, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 156, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 161, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_obligations.mlg", line 161, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/ltac/extratactics.ml
+OCAMLOPT  plugins/ltac/g_rewrite.ml
+OCAMLOPT  toplevel/coqtop.ml
+File "plugins/ltac/extratactics.mlg", line 329, characters 15-18:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 332, characters 17-20:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 334, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 336, characters 63-66:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 423, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 427, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 434, characters 67-70:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 438, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 446, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 453, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 182, characters 30-33:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 186, characters 23-26:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 188, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 194, characters 23-26:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 196, characters 30-33:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 202, characters 30-33:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 570, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 206, characters 37-40:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 575, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 209, characters 23-26:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 237, characters 32-35:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 241, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 243, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 249, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 251, characters 32-35:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 257, characters 32-35:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 261, characters 39-42:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 264, characters 25-28:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  toplevel/workerLoop.ml
+File "plugins/ltac/g_rewrite.mlg", line 271, characters 18-21:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 275, characters 20-23:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 280, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 283, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 286, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 290, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/g_rewrite.mlg", line 309, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 920, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 952, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  toplevel/coqc.ml
+File "plugins/ltac/extratactics.mlg", line 1095, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 1098, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 1104, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ltac/extratactics.mlg", line 1106, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT -a -o toplevel/toplevel.cmxa
+COQMKTOP -o bin/coqc.opt
+COQMKTOP -o bin/coqtop.opt
+COQMKTOP -o bin/coqproofworker.opt
+COQMKTOP -o bin/coqtacticworker.opt
+COQMKTOP -o bin/coqqueryworker.opt
+COQMKTOP -o bin/coqidetop.opt
+rm -f bin/coqc && cp bin/coqc.opt bin/coqc
+OCAMLOPT -pack -o plugins/ltac/ltac_plugin.cmx
+COQC -noinit theories/Init/Notations.v
+OCAMLOPT -shared -o plugins/ltac/ltac_plugin.cmxs
+OCAMLOPT  plugins/ltac/tauto.ml
+OCAMLOPT  plugins/cc/g_congruence.ml
+OCAMLOPT  plugins/firstorder/ground.ml
+OCAMLOPT  plugins/ssrmatching/ssrmatching.ml
+OCAMLOPT  plugins/extraction/g_extraction.ml
+File "plugins/extraction/g_extraction.mlg", line 79, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 80, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 84, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 88, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 94, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 100, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 105, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 111, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 117, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 122, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 126, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 131, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 138, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 144, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 148, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 153, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 161, characters 16-19:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 166, characters 12-15:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 172, characters 19-22:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/extraction/g_extraction.mlg", line 177, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/ring/ring_ast.ml
+OCAMLOPT  plugins/micromega/zify.ml
+OCAMLOPT  plugins/micromega/g_micromega.ml
+OCAMLOPT  plugins/omega/g_omega.ml
+File "plugins/micromega/g_micromega.mlg", line 88, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/btauto/g_btauto.ml
+OCAMLOPT  plugins/nsatz/g_nsatz.ml
+OCAMLOPT  plugins/rtauto/refl_tauto.ml
+OCAMLOPT  user-contrib/Ltac2/tac2intern.ml
+COQC -noinit theories/Init/Ltac.v
+OCAMLOPT -pack -o plugins/ltac/tauto_plugin.cmx
+OCAMLOPT -pack -o plugins/cc/cc_plugin.cmx
+OCAMLOPT  plugins/firstorder/g_ground.ml
+OCAMLOPT  plugins/ssrmatching/g_ssrmatching.ml
+File "plugins/firstorder/g_ground.mlg", line 56, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/firstorder/g_ground.mlg", line 61, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT -pack -o plugins/extraction/extraction_plugin.cmx
+OCAMLOPT  plugins/ring/ring.ml
+OCAMLOPT  plugins/micromega/g_zify.ml
+File "plugins/micromega/g_zify.mlg", line 29, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 30, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 31, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 32, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 33, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 34, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 35, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 36, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 37, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 38, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 39, characters 10-13:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 53, characters 70-73:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 54, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 55, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 56, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 57, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 58, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/micromega/g_zify.mlg", line 59, characters 69-72:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT -pack -o plugins/micromega/micromega_plugin.cmx
+OCAMLOPT -pack -o plugins/omega/omega_plugin.cmx
+OCAMLOPT -pack -o plugins/btauto/btauto_plugin.cmx
+OCAMLOPT -pack -o plugins/nsatz/nsatz_plugin.cmx
+OCAMLOPT  plugins/rtauto/g_rtauto.ml
+OCAMLOPT  user-contrib/Ltac2/tac2entries.ml
+rm -f bin/coqtop && cp bin/coqtop.opt bin/coqtop
+rm -f bin/coqidetop && cp bin/coqidetop.opt bin/coqidetop
+COQC -noinit theories/Init/Logic.v
+OCAMLOPT -shared -o plugins/ltac/tauto_plugin.cmxs
+OCAMLOPT -shared -o plugins/cc/cc_plugin.cmxs
+OCAMLOPT -pack -o plugins/firstorder/ground_plugin.cmx
+OCAMLOPT -pack -o plugins/ssrmatching/ssrmatching_plugin.cmx
+OCAMLOPT -shared -o plugins/extraction/extraction_plugin.cmxs
+OCAMLOPT  plugins/funind/recdef.ml
+OCAMLOPT  plugins/ring/g_ring.ml
+OCAMLOPT -pack -o plugins/micromega/zify_plugin.cmx
+File "plugins/ring/g_ring.mlg", line 88, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ring/g_ring.mlg", line 90, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ring/g_ring.mlg", line 126, characters 14-17:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ring/g_ring.mlg", line 128, characters 68-71:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT -shared -o plugins/micromega/micromega_plugin.cmxs
+OCAMLOPT -shared -o plugins/omega/omega_plugin.cmxs
+OCAMLOPT -shared -o plugins/btauto/btauto_plugin.cmxs
+OCAMLOPT -shared -o plugins/nsatz/nsatz_plugin.cmxs
+OCAMLOPT -pack -o plugins/rtauto/rtauto_plugin.cmx
+OCAMLOPT  user-contrib/Ltac2/tac2core.ml
+OCAMLBEST -o bin/fake_ide
+COQC -noinit theories/Init/Datatypes.v
+OCAMLOPT -shared -o plugins/firstorder/ground_plugin.cmxs
+OCAMLOPT -shared -o plugins/ssrmatching/ssrmatching_plugin.cmxs
+OCAMLOPT  plugins/ssr/ssrprinters.ml
+OCAMLOPT -pack -o plugins/ring/ring_plugin.cmx
+OCAMLOPT -shared -o plugins/micromega/zify_plugin.cmxs
+OCAMLOPT -shared -o plugins/rtauto/rtauto_plugin.cmxs
+COQC -noinit theories/Init/Logic_Type.v
+COQC -noinit theories/Init/Specif.v
+COQC -noinit theories/Init/Wf.v
+COQC -noinit theories/Init/Tauto.v
+OCAMLOPT  plugins/ssr/ssrcommon.ml
+OCAMLOPT  plugins/funind/functional_principles_proofs.ml
+OCAMLOPT -shared -o plugins/ring/ring_plugin.cmxs
+OCAMLOPT  user-contrib/Ltac2/tac2tactics.ml
+OCAMLOPT  user-contrib/Ltac2/g_ltac2.ml
+COQC -noinit theories/Init/Decimal.v
+COQC -noinit theories/Init/Tactics.v
+File "user-contrib/Ltac2/g_ltac2.mlg", line 912, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "user-contrib/Ltac2/g_ltac2.mlg", line 915, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "user-contrib/Ltac2/g_ltac2.mlg", line 932, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "user-contrib/Ltac2/g_ltac2.mlg", line 947, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/funind/gen_principle.ml
+OCAMLOPT  user-contrib/Ltac2/tac2stdlib.ml
+COQC -noinit theories/Init/Hexadecimal.v
+OCAMLOPT  plugins/ssr/ssrtacticals.ml
+OCAMLOPT  plugins/ssr/ssrelim.ml
+OCAMLOPT  plugins/ssr/ssrview.ml
+OCAMLOPT -pack -o user-contrib/Ltac2/ltac2_plugin.cmx
+File "plugins/ssr/ssrview.ml", line 404, characters 30-47:
+404 | let tclIPAT_VIEWS ~views:vs ?(clear_if_id=false) ~conclusion =
+                                    ^^^^^^^^^^^^^^^^^
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+COQC -noinit theories/Init/Number.v
+OCAMLOPT  plugins/funind/g_indfun.ml
+OCAMLOPT -shared -o user-contrib/Ltac2/ltac2_plugin.cmxs
+OCAMLOPT  plugins/ssr/ssrbwd.ml
+File "plugins/funind/g_indfun.mlg", line 222, characters 60-63:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/ssr/ssrequality.ml
+File "plugins/funind/g_indfun.mlg", line 283, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/funind/g_indfun.mlg", line 290, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/funind/g_indfun.mlg", line 296, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT  plugins/ssr/ssrvernac.ml
+COQC -noinit theories/Init/Nat.v
+COQC -noinit theories/Init/Numeral.v
+File "plugins/ssr/ssrvernac.mlg", line 173, characters 61-64:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ssr/ssrvernac.mlg", line 284, characters 62-65:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+File "plugins/ssr/ssrvernac.mlg", line 302, characters 66-69:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+OCAMLOPT -pack -o plugins/funind/recdef_plugin.cmx
+COQC -noinit theories/Init/Byte.v
+COQC -noinit theories/Init/Peano.v
+OCAMLOPT -shared -o plugins/funind/recdef_plugin.cmxs
+OCAMLOPT  plugins/ssr/ssripats.ml
+OCAMLOPT  plugins/ssr/ssrfwd.ml
+OCAMLOPT  plugins/ssr/ssrparser.ml
+COQC -noinit theories/Init/Prelude.v
+COQC      theories/Bool/Bool.v
+COQC      theories/ssrmatching/ssrmatching.v
+COQC      theories/ssr/ssrclasses.v
+COQC      theories/extraction/Extraction.v
+COQC      theories/Program/Basics.v
+COQC      theories/Program/Tactics.v
+COQC      theories/Relations/Relation_Definitions.v
+COQC      theories/Logic/Decidable.v
+COQC      theories/Sets/Relations_1.v
+COQC      theories/Numbers/BinNums.v
+COQC      theories/Logic/EqdepFacts.v
+COQC      theories/Bool/Sumbool.v
+COQC      theories/micromega/ZifyClasses.v
+COQC      theories/Sets/Ensembles.v
+COQC      theories/Lists/Streams.v
+COQC      theories/Bool/BoolEq.v
+COQC      theories/Bool/IfProp.v
+COQC      theories/Bool/DecBool.v
+COQC      theories/Numbers/Cyclic/Abstract/CarryType.v
+COQC      theories/Unicode/Utf8_core.v
+COQC      theories/Logic/FunctionalExtensionality.v
+COQC      theories/Numbers/AltBinNotations.v
+COQC      theories/Sets/Relations_1_facts.v
+COQC      theories/Sets/Partial_Order.v
+COQC      theories/Sets/Permut.v
+COQC      theories/Logic/PropExtensionalityFacts.v
+COQC      theories/Logic/Hurkens.v
+COQC      theories/Sets/Relations_2.v
+COQC      theories/setoid_ring/Algebra_syntax.v
+COQC      theories/extraction/ExtrOcamlBasic.v
+COQC      theories/Floats/FloatClass.v
+COQC      theories/extraction/ExtrHaskellBasic.v
+COQC      theories/Wellfounded/Inverse_Image.v
+COQC      theories/Wellfounded/Inclusion.v
+COQC      theories/Logic/Eqdep.v
+COQC      theories/derive/Derive.v
+COQC      theories/Logic/ProofIrrelevanceFacts.v
+COQC      theories/Logic/RelationalChoice.v
+COQC      theories/Logic/ExtensionalFunctionRepresentative.v
+COQC      theories/Logic/Berardi.v
+COQC      theories/Logic/JMeq.v
+COQC      theories/Logic/PropFacts.v
+COQC      theories/Logic/StrictProp.v
+COQC      theories/Logic/ProofIrrelevance.v
+COQC      theories/Logic/ExtensionalityFacts.v
+COQC      theories/Logic/SetIsType.v
+COQC      theories/Program/Equality.v
+COQC      theories/Program/Utils.v
+COQC      theories/Program/Combinators.v
+COQC      theories/Compat/Coq814.v
+COQC      theories/Compat/AdmitAxiom.v
+COQC      user-contrib/Ltac2/Init.v
+OCAMLOPT -pack -o plugins/ssr/ssreflect_plugin.cmx
+COQC      theories/ssr/ssrunder.v
+COQC      theories/funind/FunInd.v
+COQC      theories/Classes/Init.v
+COQC      theories/Relations/Relation_Operators.v
+COQC      theories/Logic/Eqdep_dec.v
+COQC      theories/PArith/BinPosDef.v
+COQC      theories/Sets/Constructive_sets.v
+COQC      theories/Unicode/Utf8.v
+COQC      theories/Numbers/Cyclic/Int63/PrimInt63.v
+COQC      theories/Logic/HLevels.v
+COQC      theories/Sets/Cpo.v
+COQC      theories/Sets/Relations_3.v
+COQC      theories/Sets/Relations_2_facts.v
+COQC      theories/Sets/Uniset.v
+COQC      theories/Floats/PrimFloat.v
+COQC      theories/Wellfounded/Transitive_Closure.v
+COQC      theories/Wellfounded/Disjoint_Union.v
+COQC      theories/Wellfounded/Well_Ordering.v
+COQC      theories/Program/Wf.v
+COQC      theories/Program/Subset.v
+COQC      theories/Compat/Coq813.v
+COQC      user-contrib/Ltac2/Int.v
+COQC      user-contrib/Ltac2/Message.v
+COQC      user-contrib/Ltac2/Bool.v
+COQC      user-contrib/Ltac2/Char.v
+COQC      user-contrib/Ltac2/String.v
+COQC      user-contrib/Ltac2/Ident.v
+COQC      user-contrib/Ltac2/Constr.v
+COQC      user-contrib/Ltac2/Std.v
+COQC      user-contrib/Ltac2/Ind.v
+COQC      user-contrib/Ltac2/Printf.v
+COQC      user-contrib/Ltac2/Ltac1.v
+OCAMLOPT -shared -o plugins/ssr/ssreflect_plugin.cmxs
+OCAMLOPT  plugins/ssrsearch/g_search.ml
+COQC      theories/Classes/CRelationClasses.v
+COQC      theories/Classes/RelationClasses.v
+COQC      theories/Relations/Operators_Properties.v
+File "plugins/ssrsearch/g_search.mlg", line 324, characters 64-67:
+Warning 16 [unerasable-optional-argument]: this optional argument cannot be erased.
+COQC      theories/Sets/Finite_sets.v
+COQC      theories/Lists/StreamMemo.v
+COQC      theories/Sets/Powerset.v
+COQC      theories/Sets/Relations_3_facts.v
+COQC      theories/Wellfounded/Union.v
+COQC      theories/Wellfounded/Lexicographic_Product.v
+COQC      theories/Compat/Coq812.v
+COQC      user-contrib/Ltac2/Control.v
+COQC      user-contrib/Ltac2/Env.v
+COQC      theories/ssr/ssreflect.v
+OCAMLOPT -pack -o plugins/ssrsearch/ssrsearch_plugin.cmx
+COQC      theories/Classes/CMorphisms.v
+COQC      theories/Classes/Morphisms.v
+COQC      theories/ssr/ssrsetoid.v
+COQC      theories/Relations/Relations.v
+COQC      theories/Sets/Powerset_facts.v
+COQC      theories/ssr/ssrfun.v
+COQC      theories/Compat/Coq811.v
+COQC      user-contrib/Ltac2/List.v
+COQC      user-contrib/Ltac2/Pattern.v
+COQC      user-contrib/Ltac2/Array.v
+COQC      user-contrib/Ltac2/Option.v
+OCAMLOPT -shared -o plugins/ssrsearch/ssrsearch_plugin.cmxs
+COQC      theories/ssr/ssrbool.v
+COQC      theories/Classes/CEquivalence.v
+COQC      user-contrib/Ltac2/Fresh.v
+COQC      user-contrib/Ltac2/Notations.v
+COQC      theories/ssrsearch/ssrsearch.v
+COQC      theories/Classes/Morphisms_Prop.v
+COQC      theories/Classes/Equivalence.v
+COQC      user-contrib/Ltac2/Ltac2.v
+COQC      theories/Classes/SetoidTactics.v
+COQC      theories/Setoids/Setoid.v
+COQC      theories/Structures/Equalities.v
+COQC      theories/Numbers/NumPrelude.v
+COQC      theories/Structures/Orders.v
+COQC      theories/Structures/OrdersTac.v
+COQC      theories/Bool/BoolOrder.v
+COQC      theories/Structures/OrdersFacts.v
+COQC      theories/Structures/GenericMinMax.v
+COQC      theories/Numbers/NatInt/NZAxioms.v
+COQC      theories/Numbers/NatInt/NZBase.v
+COQC      theories/Numbers/NatInt/NZAdd.v
+COQC      theories/Numbers/NatInt/NZOrder.v
+COQC      theories/Numbers/NatInt/NZMul.v
+COQC      theories/Numbers/NatInt/NZAddOrder.v
+COQC      theories/Numbers/NatInt/NZMulOrder.v
+COQC      theories/Numbers/NatInt/NZParity.v
+COQC      theories/Numbers/NatInt/NZPow.v
+COQC      theories/Numbers/NatInt/NZSqrt.v
+COQC      theories/Numbers/NatInt/NZDiv.v
+COQC      theories/Numbers/NatInt/NZGcd.v
+COQC      theories/Numbers/NatInt/NZProperties.v
+COQC      theories/Numbers/NatInt/NZLog.v
+COQC      theories/Numbers/NatInt/NZBits.v
+COQC      theories/Numbers/Natural/Abstract/NAxioms.v
+COQC      theories/Numbers/Integer/Abstract/ZAxioms.v
+COQC      theories/Numbers/Natural/Abstract/NBase.v
+COQC      theories/Numbers/Integer/Abstract/ZBase.v
+COQC      theories/Numbers/Integer/Abstract/ZAdd.v
+COQC      theories/Numbers/Natural/Abstract/NAdd.v
+COQC      theories/Numbers/Natural/Abstract/NIso.v
+COQC      theories/Numbers/Integer/Abstract/ZMul.v
+COQC      theories/Numbers/Natural/Abstract/NOrder.v
+COQC      theories/Numbers/Integer/Abstract/ZLt.v
+COQC      theories/Numbers/Natural/Abstract/NAddOrder.v
+COQC      theories/Numbers/Integer/Abstract/ZAddOrder.v
+COQC      theories/Numbers/Natural/Abstract/NMulOrder.v
+COQC      theories/Numbers/Natural/Abstract/NSub.v
+COQC      theories/Numbers/Integer/Abstract/ZMulOrder.v
+COQC      theories/Numbers/Natural/Abstract/NMaxMin.v
+COQC      theories/Numbers/Natural/Abstract/NParity.v
+COQC      theories/Numbers/Natural/Abstract/NSqrt.v
+COQC      theories/Numbers/Natural/Abstract/NDiv.v
+COQC      theories/Numbers/Natural/Abstract/NGcd.v
+COQC      theories/Numbers/Integer/Abstract/ZMaxMin.v
+COQC      theories/Numbers/Integer/Abstract/ZSgnAbs.v
+COQC      theories/Numbers/Integer/Abstract/ZParity.v
+COQC      theories/Numbers/Natural/Abstract/NStrongRec.v
+COQC      theories/Numbers/Natural/Abstract/NPow.v
+COQC      theories/Numbers/Natural/Abstract/NLcm.v
+COQC      theories/Numbers/Natural/Abstract/NLog.v
+COQC      theories/Numbers/Integer/Abstract/ZPow.v
+COQC      theories/Numbers/Integer/Abstract/ZDivTrunc.v
+COQC      theories/Numbers/Integer/Abstract/ZDivFloor.v
+COQC      theories/Numbers/Integer/Abstract/ZGcd.v
+COQC      theories/Numbers/Integer/Abstract/ZDivEucl.v
+COQC      theories/Numbers/Natural/Abstract/NBits.v
+COQC      theories/Numbers/Integer/Abstract/ZLcm.v
+COQC      theories/Numbers/Integer/Abstract/ZBits.v
+COQC      theories/Numbers/Natural/Abstract/NProperties.v
+COQC      theories/Arith/PeanoNat.v
+COQC      theories/Arith/Le.v
+COQC      theories/Arith/EqNat.v
+COQC      theories/Arith/Max.v
+COQC      theories/Arith/Min.v
+COQC      theories/Arith/Even.v
+COQC      theories/Arith/Lt.v
+COQC      theories/Numbers/Integer/Abstract/ZProperties.v
+COQC      theories/Arith/Plus.v
+COQC      theories/Arith/Minus.v
+COQC      theories/Arith/Between.v
+COQC      theories/Arith/Peano_dec.v
+COQC      theories/Arith/Gt.v
+COQC      theories/PArith/BinPos.v
+COQC      theories/Arith/Mult.v
+COQC      theories/Numbers/NatInt/NZDomain.v
+COQC      theories/Sets/Multiset.v
+COQC      theories/Lists/List.v
+COQC      theories/Arith/Compare_dec.v
+COQC      theories/Arith/Factorial.v
+COQC      theories/Arith/Div2.v
+COQC      theories/Numbers/Natural/Peano/NPeano.v
+COQC      theories/Arith/Wf_nat.v
+COQC      theories/Arith/Bool_nat.v
+COQC      theories/Arith/Arith_base.v
+COQC      theories/funind/Recdef.v
+COQC      theories/Arith/Euclid.v
+COQC      theories/Logic/ClassicalFacts.v
+COQC      theories/NArith/BinNatDef.v
+COQC      theories/PArith/Pnat.v
+COQC      theories/Vectors/Fin.v
+COQC      theories/PArith/POrderedType.v
+COQC      theories/Arith/Compare.v
+COQC      theories/Logic/Classical_Prop.v
+COQC      theories/Logic/PropExtensionality.v
+COQC      theories/NArith/BinNat.v
+COQC      theories/Vectors/VectorDef.v
+COQC      theories/PArith/PArith.v
+COQC      theories/Logic/Classical_Pred_Type.v
+COQC      theories/Wellfounded/Lexicographic_Exponentiation.v
+COQC      theories/Logic/WeakFan.v
+COQC      theories/rtauto/Bintree.v
+COQC      theories/Sorting/Sorted.v
+COQC      theories/setoid_ring/BinList.v
+COQC      theories/Lists/ListTactics.v
+COQC      theories/Vectors/VectorSpec.v
+COQC      theories/micromega/Refl.v
+COQC      theories/Lists/ListDec.v
+COQC      theories/Lists/ListSet.v
+COQC      theories/Numbers/Natural/Binary/NBinary.v
+COQC      theories/Numbers/NaryFunctions.v
+COQC      theories/Logic/Classical.v
+COQC      theories/Wellfounded/Wellfounded.v
+COQC      theories/rtauto/Rtauto.v
+COQC      theories/Lists/SetoidList.v
+COQC      theories/ZArith/BinIntDef.v
+COQC      theories/NArith/Nnat.v
+COQC      theories/setoid_ring/Ring_theory.v
+COQC      theories/NArith/Ndiv_def.v
+COQC      theories/NArith/Nsqrt_def.v
+COQC      theories/NArith/Ngcd_def.v
+COQC      theories/Vectors/VectorEq.v
+COQC      theories/Strings/Byte.v
+COQC      theories/micromega/Tauto.v
+COQC      theories/Logic/FinFun.v
+COQC      theories/Sets/Classical_sets.v
+COQC      theories/Logic/ClassicalUniqueChoice.v
+COQC      theories/Structures/DecidableType.v
+COQC      theories/Structures/OrderedType.v
+COQC      theories/ZArith/BinInt.v
+COQC      theories/Vectors/Vector.v
+COQC      theories/Structures/OrderedTypeAlt.v
+COQC      theories/FSets/FSetInterface.v
+COQC      theories/Classes/RelationPairs.v
+COQC      theories/Structures/OrdersAlt.v
+COQC      theories/Structures/EqualitiesFacts.v
+COQC      theories/Sorting/Permutation.v
+COQC      theories/Numbers/Natural/Abstract/NDefOps.v
+COQC      theories/Numbers/Cyclic/Abstract/DoubleType.v
+COQC      theories/Numbers/Integer/Binary/ZBinary.v
+COQC      theories/Sets/Powerset_Classical_facts.v
+COQC      theories/ZArith/Zpow_alt.v
+COQC      theories/ZArith/Zeuclid.v
+COQC      theories/Structures/OrdersEx.v
+COQC      theories/Sorting/Mergesort.v
+COQC      theories/Sorting/CPermutation.v
+COQC      theories/FSets/FMapInterface.v
+COQC      theories/ZArith/Zcompare.v
+COQC      theories/ZArith/Zeven.v
+COQC      theories/ZArith/Znat.v
+COQC      theories/ZArith/Zpow_def.v
+COQC      theories/setoid_ring/Ring_polynom.v
+COQC      theories/Bool/Bvector.v
+COQC      theories/micromega/Env.v
+COQC      theories/ZArith/Int.v
+COQC      theories/FSets/FMapWeakList.v
+COQC      theories/FSets/FSetBridge.v
+COQC      theories/MSets/MSetInterface.v
+COQC      theories/Structures/OrdersLists.v
+COQC      theories/Lists/SetoidPermutation.v
+COQC      theories/Sets/Finite_sets_facts.v
+COQC      theories/Program/Syntax.v
+COQC      theories/MSets/MSetPositive.v
+COQC      theories/Sorting/Sorting.v
+COQC      theories/FSets/FMapList.v
+COQC      theories/ZArith/Zorder.v
+COQC      theories/omega/OmegaLemmas.v
+COQC      theories/micromega/EnvRing.v
+COQC      theories/MSets/MSetGenTree.v
+COQC      theories/MSets/MSetList.v
+COQC      theories/MSets/MSetWeakList.v
+COQC      theories/Sets/Image.v
+COQC      theories/Program/Program.v
+COQC      theories/MSets/MSetRBT.v
+COQC      theories/ZArith/Zminmax.v
+COQC      theories/ZArith/Zmin.v
+COQC      theories/ZArith/Zmax.v
+COQC      theories/ZArith/ZArith_dec.v
+COQC      theories/ZArith/auxiliary.v
+COQC      theories/ZArith/Zmisc.v
+COQC      theories/MSets/MSetAVL.v
+COQC      theories/Sets/Infinite_sets.v
+COQC      theories/Classes/Morphisms_Relations.v
+COQC      theories/Classes/SetoidClass.v
+COQC      theories/Classes/EquivDec.v
+COQC      theories/ZArith/Zabs.v
+COQC      theories/ZArith/Zbool.v
+COQC      theories/ZArith/Wf_Z.v
+COQC      theories/setoid_ring/InitialRing.v
+COQC      theories/Sets/Integers.v
+COQC      theories/ZArith/Zhints.v
+COQC      theories/setoid_ring/Ring_tac.v
+COQC      theories/ZArith/ZArith_base.v
+COQC      theories/setoid_ring/Ring_base.v
+COQC      theories/micromega/VarMap.v
+COQC      theories/setoid_ring/Ncring.v
+COQC      theories/setoid_ring/Ring.v
+COQC      theories/setoid_ring/ArithRing.v
+COQC      theories/micromega/OrderedRing.v
+COQC      theories/setoid_ring/NArithRing.v
+COQC      theories/setoid_ring/ZArithRing.v
+COQC      theories/setoid_ring/Field_theory.v
+COQC      theories/Numbers/Integer/NatPairs/ZNatPairs.v
+COQC      theories/setoid_ring/Ncring_polynom.v
+COQC      theories/Arith/Arith.v
+COQC      theories/micromega/Ztac.v
+COQC      theories/ZArith/Zcomplements.v
+COQC      theories/QArith/QArith_base.v
+COQC      theories/ZArith/Zpower.v
+COQC      theories/Bool/Zerob.v
+COQC      theories/Logic/ConstructiveEpsilon.v
+COQC      theories/QArith/QOrderedType.v
+COQC      theories/extraction/ExtrHaskellNatNum.v
+COQC      theories/extraction/ExtrOcamlNatInt.v
+COQC      theories/extraction/ExtrOcamlNatBigInt.v
+COQC      theories/Logic/ChoiceFacts.v
+COQC      theories/Logic/WKL.v
+COQC      theories/Classes/SetoidDec.v
+COQC      theories/micromega/ZifyInst.v
+COQC      theories/ZArith/Zdiv.v
+COQC      theories/setoid_ring/Field_tac.v
+COQC      theories/micromega/DeclConstant.v
+COQC      theories/QArith/Qminmax.v
+COQC      theories/extraction/ExtrHaskellNatInteger.v
+COQC      theories/extraction/ExtrHaskellNatInt.v
+COQC      theories/micromega/ZifyPow.v
+COQC      theories/Logic/ClassicalChoice.v
+COQC      theories/Logic/IndefiniteDescription.v
+COQC      theories/Logic/Description.v
+COQC      theories/Logic/Diaconescu.v
+COQC      theories/Logic/ClassicalEpsilon.v
+COQC      theories/Logic/ClassicalDescription.v
+COQC      theories/Logic/Epsilon.v
+COQC      theories/micromega/Zify.v
+COQC      theories/ZArith/Znumtheory.v
+COQC      theories/setoid_ring/Field.v
+COQC      theories/Logic/SetoidChoice.v
+COQC      theories/omega/PreOmega.v
+COQC      theories/Strings/Ascii.v
+COQC      theories/QArith/Qfield.v
+COQC      theories/omega/OmegaTactic.v
+COQC      theories/omega/OmegaPlugin.v
+COQC      theories/QArith/Qring.v
+COQC      theories/QArith/Qreduction.v
+COQC      theories/Strings/String.v
+COQC      theories/QArith/QArith.v
+COQC      theories/Strings/ByteVector.v
+COQC      theories/Numbers/DecimalString.v
+COQC      theories/Numbers/HexadecimalString.v
+COQC      theories/extraction/ExtrOcamlChar.v
+COQC      theories/extraction/ExtrHaskellString.v
+COQC      theories/QArith/Qcanon.v
+COQC      theories/Strings/OctalString.v
+COQC      theories/Strings/BinaryString.v
+COQC      theories/Strings/HexString.v
+COQC      theories/NArith/Ndigits.v
+COQC      theories/QArith/Qabs.v
+COQC      theories/QArith/Qround.v
+COQC      theories/extraction/ExtrOcamlString.v
+COQC      theories/extraction/ExtrOcamlNativeString.v
+COQC      theories/QArith/Qcabs.v
+COQC      theories/NArith/NArith.v
+COQC      theories/NArith/Ndec.v
+COQC      theories/Reals/Abstract/ConstructiveReals.v
+COQC      theories/setoid_ring/Ncring_initial.v
+COQC      theories/NArith/Ndist.v
+COQC      theories/micromega/RingMicromega.v
+COQC      theories/Structures/OrderedTypeEx.v
+COQC      theories/Structures/DecidableTypeEx.v
+COQC      theories/FSets/FSetPositive.v
+COQC      theories/micromega/ZCoeff.v
+COQC      theories/FSets/FMapFacts.v
+COQC      theories/FSets/FSetFacts.v
+COQC      theories/MSets/MSetFacts.v
+COQC      theories/micromega/QMicromega.v
+COQC      theories/Reals/Abstract/ConstructiveAbs.v
+COQC      theories/micromega/ZMicromega.v
+COQC      theories/FSets/FSetDecide.v
+COQC      theories/FSets/FSetCompat.v
+COQC      theories/micromega/Lqa.v
+COQC      theories/Reals/Abstract/ConstructiveLimits.v
+COQC      theories/MSets/MSetDecide.v
+COQC      theories/FSets/FSetProperties.v
+COQC      theories/FSets/FSetList.v
+COQC      theories/FSets/FSetWeakList.v
+COQC      theories/micromega/Lia.v
+COQC      theories/MSets/MSetProperties.v
+COQC      theories/micromega/ZArith_hints.v
+COQC      theories/ZArith/Zgcd_alt.v
+COQC      theories/ZArith/Zpow_facts.v
+COQC      theories/Reals/Abstract/ConstructiveLUB.v
+COQC      theories/ZArith/Zwf.v
+COQC      theories/ZArith/Zquot.v
+COQC      theories/Reals/Abstract/ConstructiveRealsMorphisms.v
+COQC      theories/Sorting/PermutSetoid.v
+COQC      theories/omega/Omega.v
+COQC      theories/FSets/FSetEqProperties.v
+COQC      theories/FSets/FSetToFiniteSet.v
+COQC      theories/QArith/Qpower.v
+COQC      theories/Reals/Abstract/ConstructiveMinMax.v
+COQC      theories/Reals/Abstract/ConstructiveSum.v
+COQC      theories/MSets/MSetToFiniteSet.v
+COQC      theories/MSets/MSetEqProperties.v
+COQC      theories/Sorting/PermutEq.v
+COQC      theories/Sorting/Heap.v
+COQC      theories/ZArith/ZArith.v
+COQC      theories/Reals/Abstract/ConstructivePower.v
+COQC      theories/MSets/MSets.v
+COQC      theories/FSets/FMapAVL.v
+COQC      theories/FSets/FMapPositive.v
+merge = 
+fun (elt : Type) (s1 s2 : t elt) =>
+match s1 with
+| Leaf _ => fun _ : t elt => s2
+| Node _ _ _ _ _ =>
+    fun H : t elt =>
+    match H with
+    | Leaf _ => s1
+    | Node l2 x4 d2 r2 _ =>
+        let (s2', H0) := remove_min l2 x4 d2 r2 in
+        let (x5, d) := H0 in bal s1 x5 d s2'
+    end
+end s2
+     : forall elt : Type, t elt -> t elt -> t elt
+
+Arguments merge [elt]%type_scope _ _
+File "./theories/FSets/FMapAVL.v", line 492, characters 0-61:
+Error:
+Cannot define graph(s) for merge
+Raised at Exninfo.iraise in file "clib/exninfo.ml", line 80, characters 4-11
+Called from Gen_principle.do_generate_principle_aux in file "plugins/funind/gen_principle.ml", line 1851, characters 6-202
+Called from Gen_principle.make_graph in file "plugins/funind/gen_principle.ml", line 2135, characters 6-100
+Called from G_indfun.coqpp_body.(fun) in file "plugins/funind/g_indfun.mlg", line 266, characters 16-81
+Called from Vernacinterp.interp_typed_vernac in file "vernac/vernacinterp.ml", line 28, characters 19-23
+Called from Vernacinterp.interp_control.(fun) in file "vernac/vernacinterp.ml", line 215, characters 24-69
+Called from Flags.with_modified_ref in file "lib/flags.ml", line 17, characters 14-17
+Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
+Called from Vernacinterp.interp_gen.(fun) in file "vernac/vernacinterp.ml", line 264, characters 18-43
+Called from Vernacinterp.interp_gen in file "vernac/vernacinterp.ml", line 262, characters 6-279
+Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
+Called from Stm.Reach.known_state.reach.(fun) in file "stm/stm.ml", line 2154, characters 16-43
+Called from Stm.State.define in file "stm/stm.ml", line 957, characters 6-10
+Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
+Called from Stm.Reach.known_state.reach in file "stm/stm.ml", line 2296, characters 4-105
+Called from Stm.observe in file "stm/stm.ml", line 2397, characters 4-60
+Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
+Called from Vernac.interp_vernac in file "toplevel/vernac.ml", line 68, characters 31-52
+Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
+Called from Flags.with_modified_ref in file "lib/flags.ml", line 17, characters 14-17
+Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
+Called from Flags.silently in file "lib/flags.ml" (inlined), line 66, characters 19-40
+Called from Vernac.load_vernac_core.loop in file "toplevel/vernac.ml", line 111, characters 8-69
+Called from Vernac.load_vernac_core in file "toplevel/vernac.ml", line 115, characters 6-19
+Re-raised at Exninfo.iraise in file "clib/exninfo.ml", line 82, characters 4-38
+Called from Vernac.load_vernac in file "toplevel/vernac.ml", line 171, characters 30-88
+Called from Ccompile.compile in file "toplevel/ccompile.ml", line 143, characters 18-89
+Called from Ccompile.compile in file "toplevel/ccompile.ml" (inlined), line 208, characters 2-59
+Called from Ccompile.compile_file in file "toplevel/ccompile.ml", line 217, characters 4-61
+Called from Coqc.coqc_main in file "toplevel/coqc.ml", line 48, characters 2-100
+Called from Coqc.coqc_run in file "toplevel/coqc.ml", line 70, characters 4-36
+
+
+make[1]: *** [Makefile.build:874: theories/FSets/FMapAVL.vo] Error 1
+COQC      theories/FSets/FSetAVL.v
+COQC      theories/Classes/DecidableClass.v
+COQC      theories/Numbers/DecimalFacts.v
+COQC      theories/Numbers/Cyclic/Int31/Int31.v
+COQC      theories/Numbers/Cyclic/Abstract/CyclicAxioms.v
+COQC      theories/Numbers/Cyclic/Int63/Int63.v
+COQC      theories/Reals/Cauchy/PosExtra.v
+COQC      theories/Reals/Cauchy/ConstructiveExtra.v
+COQC      theories/Numbers/HexadecimalFacts.v
+COQC      theories/setoid_ring/Ncring_tac.v
+COQC      theories/Floats/SpecFloat.v
+COQC      theories/extraction/ExtrHaskellZNum.v
+COQC      theories/extraction/ExtrOcamlZInt.v
+COQC      theories/extraction/ExtrOcamlIntConv.v
+COQC      theories/extraction/ExtrOcamlBigIntConv.v
+COQC      theories/extraction/ExtrOcamlZBigInt.v
+COQC      theories/micromega/ZifyComparison.v
+COQC      theories/micromega/ZifyBool.v
+COQC      theories/ZArith/Zdigits.v
+COQC      theories/FSets/FMaps.v
+COQC      theories/FSets/FSets.v
+COQC      theories/btauto/Algebra.v
+COQC      theories/Numbers/DecimalPos.v
+COQC      theories/Numbers/Cyclic/Int31/Cyclic31.v
+COQC      theories/Numbers/Cyclic/ZModulo/ZModulo.v
+COQC      theories/Numbers/Cyclic/Int63/Cyclic63.v
+COQC      theories/Numbers/Cyclic/Int63/Sint63.v
+COQC      theories/Numbers/Cyclic/Abstract/NZCyclic.v
+COQC      theories/Numbers/DecimalNat.v
+COQC      theories/Reals/Cauchy/QExtra.v
+COQC      theories/Numbers/HexadecimalPos.v
+COQC      theories/Numbers/HexadecimalNat.v
+COQC      theories/setoid_ring/Cring.v
+COQC      theories/extraction/ExtrOCamlInt63.v
+COQC      theories/Floats/FloatOps.v
+COQC      theories/extraction/ExtrHaskellZInt.v
+COQC      theories/extraction/ExtrHaskellZInteger.v
+COQC      theories/Array/PArray.v
+COQC      theories/micromega/ZifyInt63.v
+COQC      theories/btauto/Reflect.v
+COQC      theories/Numbers/DecimalN.v
+COQC      theories/Numbers/Cyclic/Int31/Ring31.v
+COQC      theories/Numbers/Cyclic/Int63/Ring63.v
+COQC      theories/Reals/Cauchy/ConstructiveCauchyReals.v
+COQC      theories/setoid_ring/Integral_domain.v
+COQC      theories/Floats/FloatAxioms.v
+COQC      theories/extraction/ExtrOCamlPArray.v
+COQC      theories/setoid_ring/Rings_Q.v
+COQC      theories/setoid_ring/Rings_Z.v
+COQC      theories/btauto/Btauto.v
+COQC      theories/Numbers/DecimalZ.v
+COQC      theories/nsatz/NsatzTactic.v
+COQC      theories/Numbers/DecimalQ.v
+COQC      theories/Reals/Cauchy/ConstructiveCauchyRealsMult.v
+COQC      theories/Numbers/HexadecimalN.v
+COQC      theories/Numbers/HexadecimalZ.v
+COQC      theories/Numbers/HexadecimalQ.v
+COQC      theories/Reals/Cauchy/ConstructiveCauchyAbs.v
+COQC      theories/Reals/Cauchy/ConstructiveRcomplete.v
+COQC      theories/Reals/ClassicalDedekindReals.v
+COQC      theories/Reals/Rdefinitions.v
+COQC      theories/Numbers/DecimalR.v
+COQC      theories/Numbers/HexadecimalR.v
+COQC      theories/Reals/Raxioms.v
+COQC      theories/Reals/Rpow_def.v
+COQC      theories/setoid_ring/RealField.v
+COQC      theories/Reals/ClassicalConstructiveReals.v
+COQC      theories/Reals/RIneq.v
+COQC      theories/Reals/DiscrR.v
+COQC      theories/Reals/R_Ifp.v
+COQC      theories/Reals/SplitRmult.v
+COQC      theories/QArith/Qreals.v
+COQC      theories/Reals/Rlogic.v
+COQC      theories/Reals/Rbase.v
+COQC      theories/Reals/Rbasic_fun.v
+COQC      theories/Reals/ROrderedType.v
+COQC      theories/Reals/R_sqr.v
+COQC      theories/Reals/SplitAbsolu.v
+COQC      theories/Reals/ArithProp.v
+COQC      theories/Reals/Rminmax.v
+COQC      theories/Reals/Rfunctions.v
+COQC      theories/Reals/Rseries.v
+COQC      theories/micromega/RMicromega.v
+COQC      theories/Reals/Rregisternames.v
+COQC      theories/Reals/RList.v
+COQC      theories/Reals/Runcountable.v
+COQC      theories/Reals/SeqProp.v
+COQC      theories/micromega/Lra.v
+COQC      theories/micromega/MExtraction.v
+COQC      theories/Reals/Rlimit.v
+COQC      theories/micromega/Fourier_util.v
+COQC      theories/micromega/Psatz.v
+COQC      theories/Reals/Rcomplete.v
+COQC      theories/micromega/Fourier.v
+COQC      theories/Floats/FloatLemmas.v
+COQC      theories/Reals/Rderiv.v
+COQC      theories/Reals/PartSum.v
+COQC      theories/Reals/Ranalysis1.v
+COQC      theories/Floats/Floats.v
+COQC      theories/Reals/AltSeries.v
+COQC      theories/Reals/Binomial.v
+COQC      theories/Reals/Rsigma.v
+COQC      theories/Reals/Cauchy_prod.v
+COQC      theories/Reals/Alembert.v
+COQC      theories/Reals/Rtopology.v
+COQC      theories/Reals/Ranalysis2.v
+COQC      theories/extraction/ExtrOCamlFloats.v
+COQC      theories/Reals/Rprod.v
+COQC      theories/Reals/MVT.v
+COQC      theories/Reals/Ranalysis3.v
+COQC      theories/Reals/SeqSeries.v
+COQC      theories/Reals/Rtrigo_fun.v
+COQC      theories/Reals/Rsqrt_def.v
+COQC      theories/Reals/PSeries_reg.v
+COQC      theories/Reals/Rtrigo_def.v
+COQC      theories/Reals/R_sqrt.v
+COQC      theories/Reals/Rtrigo_alt.v
+COQC      theories/Reals/Cos_rel.v
+COQC      theories/Reals/Sqrt_reg.v
+COQC      theories/Reals/Cos_plus.v
+COQC      theories/Reals/Rtrigo1.v
+COQC      theories/Reals/Exp_prop.v
+COQC      theories/Reals/Rtrigo_reg.v
+COQC      theories/Reals/Rtrigo_calc.v
+COQC      theories/Reals/Rgeom.v
+COQC      theories/Reals/Ranalysis4.v
+COQC      theories/Reals/Rpower.v
+COQC      theories/Reals/Ranalysis_reg.v
+COQC      theories/Reals/Rtrigo_facts.v
+COQC      theories/Reals/RiemannInt_SF.v
+COQC      theories/Reals/RiemannInt.v
+COQC      theories/Reals/Ranalysis5.v
+COQC      theories/Reals/Ratan.v
+COQC      theories/Reals/Machin.v
+COQC      theories/Reals/Rtrigo.v
+COQC      theories/Reals/Ranalysis.v
+COQC      theories/Reals/NewtonInt.v
+COQC      theories/Reals/Integration.v
+COQC      theories/Reals/Reals.v
+COQC      theories/nsatz/Nsatz.v
+COQC      theories/setoid_ring/Rings_R.v
+make[1]: Target 'world' not remade because of errors.
+make[1]: Leaving directory '/home/tmartine/pir2/coq'
+make: *** [Makefile.make:178: submake] Error 2
+make: Target 'NOARG' not remade because of errors.

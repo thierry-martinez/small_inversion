@@ -64,17 +64,17 @@ Inductive vector (A : Type) : nat -> Type :=
 | Nil : vector A O
 | Cons n (_ : A) (_ : vector A n) : vector A (S n).
 
-Definition rectS {A} (P:forall {n}, vector A (S n) -> Type)
- (bas: forall a: A, P (Cons _ _ a (Nil _)))
- (rect: forall a {n} (v: vector A (S n)), P v -> P (Cons _ _ a v)) :=
- fix rectS_fix {n} (v: vector A (S n)) : P v :=
+Definition rectS {A} (P:forall n, vector A (S n) -> Type)
+ (bas: forall a: A, P _ (Cons _ _ a (Nil _)))
+ (rect: forall a {n} (v: vector A (S n)), P _ v -> P _ (Cons _ _ a v)) :=
+ fix rectS_fix {n} (v: vector A (S n)) : P _ v :=
  match v with
  |Cons _ 0 a v =>
    match v with
      |Nil _ => bas a
      |_ => fun devil => False_ind (@IDProp) devil (* subterm !!! *)
    end
- |Cons _ (S nn') a v => vector_rect a v (rectS_fix v)
+ |Cons _ (S nn') a v => rect a v (rectS_fix v)
  |_ => fun devil => False_ind (@IDProp) devil (* subterm !!! *)
  end.
 
@@ -245,7 +245,7 @@ Inductive t : nat -> Type := C : t 0 | D n : t n -> t n.
 Definition test (v : t 0) : t 0 :=
 match v with
 | C => C
-| D _ x => x
+| D n x => D 0 x
 end.
 
 Print test.
